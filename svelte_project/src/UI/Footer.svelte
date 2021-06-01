@@ -2,10 +2,10 @@
     <div class="container">
     <div class="row">
         <div class="col">
-        <p><strong>Brand information</strong></p>
+        <p><strong>BRAZALETES MÉXICO</strong></p>
         <address class="small">
-            1355 Market St, Suite 900<br>
-            San Francisco, CA 94103<br>
+            Sm 301, Mza 4, Lote 5, Central de <br>
+            Abastos, 77536, Cancún, Q.R. <br>
             <abbr title="Phone">P:</abbr> (123) 456-7890
         </address>
         <address class="small">
