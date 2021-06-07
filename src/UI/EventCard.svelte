@@ -1,11 +1,14 @@
 <script>
+    export let id = null;
+    export let descripcion = null;
+    export let img = null;
     export let url = null;
-    export let eventType = null;
+    export let orden = null;
 </script>
 
 <div class="col">
-    <div class="card event-card margin-0" style="background-image: url({url});">
-        <button class='btn btn-primary'>{eventType}</button>
+    <div class="card event-card margin-0" style="background-image: url({img});">
+        <button class='btn btn-primary'>{descripcion}</button>
     </div>
 </div>
 
