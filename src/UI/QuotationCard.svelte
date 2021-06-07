@@ -1,18 +1,20 @@
 <script>
     export let id = null;
-    export let category = null;
-    export let subcategory = null;
-    export let url = null;
+    export let id_seccion = null;
+    export let descripcion = null;
+    export let slug = null;
+    export let img = null;
+    export let orden = null;
 </script>
 
 <div id={id} class="col">
     <div class="card quotation-card">    
         <div class="card-body">
-            <h5 class="card-title text-center">{category}</h5>
-            <h6 class="card-subtitle text-center text-muted">{subcategory}</h6>
+            <h5 class="card-title text-center">{descripcion}</h5>
+            <!-- <h6 class="card-subtitle text-center text-muted">{descripcion}</h6> -->
         </div>
     
-        <img src="{url}" alt="{subcategory}">
+        <img src="{img}" alt="{descripcion}">
     </div>
 </div>
 
