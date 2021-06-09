@@ -1,5 +1,6 @@
 <script>
     import Menu from './Menu.svelte';
+    import {Link} from 'svelte-routing';
 </script>
 
 
@@ -7,9 +8,9 @@
     <div class="container">
         <div class="row align-items-center py-3">
         <div class="col-12 col-sm-12 col-md-6">
-            <a href>
-            <img src="https://www.brazaletesmexico.com/wp-content/uploads/logo-brazaletes-mexico.png" width="150" alt="Logo brazaletes mx" />
-            </a>
+            <Link to='/'>
+                <img src="https://www.brazaletesmexico.com/wp-content/uploads/logo-brazaletes-mexico.png" width="150" alt="Logo brazaletes mx" />
+            </Link>
         </div>
         <div class="col-12 col-sm-12 col-md-6">
             <form class="d-flex">
@@ -73,3 +74,9 @@
         </div>
     </nav>
 </header>
+
+<style>
+    .container {
+        max-width: 1160px;
+    }
+</style>

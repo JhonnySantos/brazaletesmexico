@@ -1,14 +1,17 @@
 <script>
-    import {onMount} from 'svelte'
+    import { onMount } from 'svelte'
     import Template from '../UI/Template.svelte';
     import Carousel from '../UI/Carousel.svelte';
     import EventsGrid from '../UI/EventsGrid.svelte';
-    import QuotationGrid from '../UI/QuotationGrid.svelte';
     import BenefitsGrid from '../UI/BenefitsGrid.svelte';
     import Section from '../UI/Section.svelte';
+    import { currentSection } from "../stores/stores";
+    import GridTiposBrazaletes from '../UI/GridTiposBrazaletes.svelte';
 
     let eventos = [];
-    let cotizaciones = [];
+    let tipos = [];
+
+    $currentSection = 0;
 
     const benefits = [
         {
@@ -36,9 +39,13 @@
         eventos = await response.json();
 
         response = await fetch('http://localhost:3000/api/v1/tipos/all/1');
-        cotizaciones = await response.json();
+        tipos = await response.json();
     });
 </script>
+
+<svelte:head>
+    <title> Brazaletes México | Home </title>
+</svelte:head>
 
 <Template>
     <div>
@@ -46,7 +53,9 @@
 
         <Section name='BRAZALETES POR COTIZACIÓN' />
 
-        <QuotationGrid {cotizaciones} />
+        <div class="container my-4">
+            <GridTiposBrazaletes {tipos} />
+        </div>
 
         <Section name='BRAZALETES PARA CADA OCASIÓN' />
 
@@ -55,7 +64,5 @@
         <Section name='NUESTRAS VENTAJAS' />
 
         <BenefitsGrid {benefits} />
-
-        <!-- <Section name='ÚLTIMOS ARTÍCULOS EN EL BLOG' /> -->
     </div>
 </Template>

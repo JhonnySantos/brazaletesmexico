@@ -1,10 +1,14 @@
 <script>
     import Header from './Header.svelte';
     import Footer from './Footer.svelte';
+    import {fade} from 'svelte/transition';
 </script>
+
 
 <Header />
 
-<slot></slot>
+<div transition:fade>
+    <slot></slot>
+</div>
 
 <Footer />
