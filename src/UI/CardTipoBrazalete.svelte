@@ -6,16 +6,16 @@
 
     const dispatch = createEventDispatcher();
 
-    const enviarTitulo = () => {
-        dispatch('updateTitulo', tipo.descripcion);
+    const enviarIdTipo = () => {
+        dispatch('updateIdTipo', tipo.id);
     }
 </script>
 
 <div id={tipo.id} class="col">
-    <Link class="nav-link p-0" to={tipo.slug} on:click={enviarTitulo}>
+    <Link class="nav-link p-0" to={tipo.slug} on:click={enviarIdTipo}>
         <div class="card card-tipo-brazalete">    
             <div class="card-body">
-                <h5 class="card-title text-center">{tipo.descripcion}</h5>
+                <h5 class="card-title text-center fw-bold">{tipo.descripcion}</h5>
                 <!-- <h6 class="card-subtitle text-center text-muted">{descripcion}</h6> -->
             </div>
         
@@ -23,3 +23,14 @@
         </div>
     </Link>
 </div>
+
+<style>
+    .card-tipo-brazalete:hover {
+        opacity: 0.7;
+    }
+
+    .card-tipo-brazalete img {
+        width: 230px !important;
+        margin: 20px auto !important;
+    }
+</style>
