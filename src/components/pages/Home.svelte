@@ -10,8 +10,11 @@
     import BenefitsGrid from '../ui/BenefitsGrid.svelte';
     import GridTiposBrazaletes from '../ui/GridTiposBrazaletes.svelte';
 
-    let eventos = [];
     let tipos = [];
+    let eventos = [];
+    export let location = "";
+
+    console.log(location);
 
     $currentSection = 0;
 
