@@ -8,15 +8,14 @@
 
     const enviarIdTipo = () => {
         dispatch('updateIdTipo', tipo.id);
-    }
+    };
 </script>
 
-<div id={tipo.id} class="col">
+<div id={tipo.id} class="col mb-3">
     <Link class="nav-link p-0" to={tipo.slug} on:click={enviarIdTipo}>
         <div class="card card-tipo-brazalete">    
             <div class="card-body">
                 <h5 class="card-title text-center fw-bold">{tipo.descripcion}</h5>
-                <!-- <h6 class="card-subtitle text-center text-muted">{descripcion}</h6> -->
             </div>
         
             <img src="{tipo.img}" alt="{tipo.descripcion}">

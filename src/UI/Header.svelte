@@ -24,7 +24,7 @@
                 placeholder="Búsqueda"
             />
             <button
-                class="btn btn-sm btn-outline-secondary my-2 my-sm-0"
+                class="btn btn-sm btn-secondary my-2 my-sm-0"
                 type="submit"
             >
                 Buscar
@@ -34,7 +34,7 @@
         </div>
     </div>
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark py-2">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary py-2">
         <div class="container">
             <button
                 class="navbar-toggler"
@@ -50,24 +50,24 @@
 
             <Menu />
 
-            <div>
-                <a href class="link-secondary text-decoration-none">
+            <div class='social-media'>
+                <a href="https://www.instagram.com/brazaletesmexico/" class="link-secondary text-white text-decoration-none">
+                    <i class="fab fa-facebook-square fa-lg"></i>
+                </a>
+
+                <a href="https://www.facebook.com/brazaletesmex/" class="link-secondary text-white text-decoration-none">
                     <i class="fab fa-instagram-square fa-lg"></i>
                 </a>
                 
-                <a href class="link-secondary text-decoration-none">
-                    <i class="fab fa-facebook-square fa-lg"></i>
-                </a>
-                
-                <a href class="link-secondary text-decoration-none">
+                <a href="https://twitter.com/BrazaletesMex" class="link-secondary text-white text-decoration-none">
                     <i class="fab fa-twitter-square fa-lg"></i>
                 </a>
                 
-                <a href class="link-secondary text-decoration-none">
+                <a href="https://mx.linkedin.com/company/brazaletes-mexico" class="link-secondary text-white text-decoration-none">
                     <i class="fab fa-youtube-square fa-lg"></i>
                 </a>
                 
-                <a href class="link-secondary text-decoration-none">
+                <a href="https://www.youtube.com/channel/UCljRrLXh0Ajd9ib0WYcb29A" class="link-secondary text-white text-decoration-none">
                     <i class="fab fa-linkedin fa-lg"></i>
                 </a>
             </div>
@@ -77,6 +77,11 @@
 
 <style>
     .container {
-        max-width: 1160px;
+        max-width: 1200px;
+    }
+
+    .social-media a{
+        margin-right: 5px !important;
+        font-size: 16px !important;
     }
 </style>
