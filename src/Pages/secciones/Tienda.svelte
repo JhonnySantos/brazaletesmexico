@@ -1,14 +1,15 @@
 <script>
-    import { Link } from 'svelte-routing';
-    import Template from "../../UI/Template.svelte";
     import { onMount } from "svelte";
+    import { Link } from 'svelte-routing';
+    import { apiHost } from '../../stores/stores';
+    import Template from "../../UI/Template.svelte";
 
     let brazaletes = [];
 
     onMount(async () => {
-        const response = await fetch('http://localhost:3000/api/v1/brazaletes/all/');
+        const response = await fetch(`${$apiHost}/brazaletes/all/`);
         
-        brazaletes = await response.json(); console.log(brazaletes);
+        brazaletes = await response.json();
         brazaletes = brazaletes.filter(brazalete => brazalete.precio_min > 0);
     });
 </script>
@@ -25,7 +26,7 @@
 
                             <div class="card-body">
                                 <h6 class="card-subtitle text-center text-muted">{brazalete.descripcion}</h6>
-                                <h5 class="card-title text-center mt-2"> $ {brazalete.precio_min} - $ {brazalete.precio_max} <span class="text-muted"> + I.V.A </span> </h5>
+                                <h5 class="card-title text-center mt-2"> $ {brazalete.precio_min} <span class="text-muted"> + I.V.A </span> </h5>
                             </div>
                         </div>
                     </Link>
@@ -36,7 +37,7 @@
 </Template>
 
 <style>
-    .card-tipo-brazalete h5 + h6 {
+    .card-tipo-brazalete h5 {
         font-size: 12px !important;
     }
 

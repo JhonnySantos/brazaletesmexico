@@ -1,15 +1,13 @@
 <script>
-    import Promocionales from "../pages/secciones/Promocionales.svelte";
-    import { Link } from "svelte-routing";
     import { onMount } from "svelte"
-    import { currentSection } from "../stores/stores";
-import Section from "./Section.svelte";
+    import { Link } from "svelte-routing";
+    import { currentSection, apiHost } from "../stores/stores";
 
     let secciones = [];
 
 
     onMount(async () => {
-        const response = await fetch("http://localhost:3000/api/v1/secciones");
+        const response = await fetch(`${$apiHost}/secciones`);
         secciones = await response.json();
     });
 
