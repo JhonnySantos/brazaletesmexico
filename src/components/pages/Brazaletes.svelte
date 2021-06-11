@@ -1,12 +1,15 @@
 <script>
     import { onMount } from 'svelte';
-    import Template from '../../UI/Template.svelte';
-    import GridBrazaletes from '../../UI/GridBrazaletes.svelte';
-    import GridTiposBrazaletes from "../../UI/GridTiposBrazaletes.svelte";
-    import { currentSection, currentIdTipo, apiHost } from "../../stores/stores";
+    import { currentSection, currentIdTipo, apiHost } from "../stores/stores";
+    
+    import Template from '../ui/Template.svelte';
+    import GridBrazaletes from '../ui/GridBrazaletes.svelte';
+    import GridTiposBrazaletes from "../ui/GridTiposBrazaletes.svelte";
 
     export let tipo = null;
     export let location;
+
+    console.log(location);
 
     $currentSection = 1;
 

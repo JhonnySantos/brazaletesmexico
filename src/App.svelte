@@ -1,13 +1,13 @@
 <script>
 	import {Router, Route, Link} from "svelte-routing";
-	
-	import Home from './pages/Home.svelte';
-	import Ecofriendly from './pages/secciones/Ecofriendly.svelte';
-	import Brazaletes from './pages/secciones/Brazaletes.svelte';
-	import RFID from './pages/secciones/RFID.svelte';
-	import Hologramas from './pages/secciones/Hologramas.svelte';
-	import Promocionales from './pages/secciones/Promocionales.svelte';
-	import Tienda from './pages/secciones/Tienda.svelte';
+
+	import Home from './components/pages/Home.svelte';
+	import Brazaletes from './components/pages/Brazaletes.svelte';
+	import RFID from './components/pages/RFID.svelte';
+	import Ecofriendly from './components/pages/Ecofriendly.svelte';
+	import Hologramas from './components/pages/Hologramas.svelte';
+	import Promocionales from './components/pages/Promocionales.svelte';
+	import Tienda from './components/pages/Tienda.svelte';
 </script>
 
 <Router>

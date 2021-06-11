@@ -1,16 +1,17 @@
 <script>
     import { onMount } from 'svelte';
-    import { currentSection, apiHost } from "../../stores/stores";
+    import { currentSection, apiHost } from "../stores/stores";
 
-    import Template from '../../UI/Template.svelte';
-    import GridBrazaletes from '../../UI/GridBrazaletes.svelte';
-    import GridTiposBrazaletes from "../../UI/GridTiposBrazaletes.svelte";
+    import Template from '../ui/Template.svelte';
+
+    import GridBrazaletes from '../ui/GridBrazaletes.svelte';
+    import GridTiposBrazaletes from "../ui/GridTiposBrazaletes.svelte";
 
     // export let id;
     export let tipo = null;
     export let location;
 
-    $currentSection = 5;
+    $currentSection = 3;
 
     let tipos = [];
     let brazaletes = [];
@@ -27,11 +28,11 @@
 </script>
 
 <svelte:head>
-    <title> Brazaletes México | Brazaletes Promocionales </title>
+    <title> Brazaletes México | Brazaletes Ecofriendly </title>
 </svelte:head>
 
 <Template>
-    <h1 class='text-center my-5'>Brazaletes Promocionales</h1>
+    <h1 class='text-center my-5'>Brazaletes Ecofriendly</h1>
 
     <div class="container my-5">
             {#if tipo !== null}
