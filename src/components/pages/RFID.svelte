@@ -8,8 +8,11 @@
     import GridTiposBrazaletes from "../ui/GridTiposBrazaletes.svelte";
 
     // export let id;
-    export let tipo = null;
     export let location;
+    export let tipo = null;
+
+    console.log(location);
+
 
     $currentSection = 2;
 
@@ -38,7 +41,7 @@
             {#if tipo !== null}
                 <GridBrazaletes {brazaletes} />
             {:else}
-                <GridTiposBrazaletes {tipos} />
+                <GridTiposBrazaletes {tipos} {location} />
             {/if}
     </div>
 </Template>

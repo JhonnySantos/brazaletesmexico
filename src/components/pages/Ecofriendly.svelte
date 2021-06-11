@@ -8,8 +8,10 @@
     import GridTiposBrazaletes from "../ui/GridTiposBrazaletes.svelte";
 
     // export let id;
-    export let tipo = null;
     export let location;
+    export let tipo = null;
+
+    console.log(location);
 
     $currentSection = 3;
 
