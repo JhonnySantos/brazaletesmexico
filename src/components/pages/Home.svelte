@@ -1,12 +1,14 @@
 <script>
     import { onMount } from 'svelte'
-    import Section from '../UI/Section.svelte';
-    import Template from '../UI/Template.svelte';
-    import Carousel from '../UI/Carousel.svelte';
-    import EventsGrid from '../UI/EventsGrid.svelte';
-    import BenefitsGrid from '../UI/BenefitsGrid.svelte';
     import { currentSection, apiHost } from "../stores/stores";
-    import GridTiposBrazaletes from '../UI/GridTiposBrazaletes.svelte';
+
+    import Template from '../ui/Template.svelte';
+    
+    import Section from '../ui/Section.svelte';
+    import Carousel from '../ui/Carousel.svelte';
+    import EventsGrid from '../ui/EventsGrid.svelte';
+    import BenefitsGrid from '../ui/BenefitsGrid.svelte';
+    import GridTiposBrazaletes from '../ui/GridTiposBrazaletes.svelte';
 
     let eventos = [];
     let tipos = [];

@@ -1,8 +1,9 @@
 <script>
     import { onMount } from "svelte";
     import { Link } from 'svelte-routing';
-    import { apiHost } from '../../stores/stores';
-    import Template from "../../UI/Template.svelte";
+    import { apiHost } from '../stores/stores';
+
+    import Template from "../ui/Template.svelte";
 
     let brazaletes = [];
 

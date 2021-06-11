@@ -1,10 +1,10 @@
 <script>
     import { onMount } from 'svelte';
-    import { currentSection, apiHost } from "../../stores/stores";
+    import { currentSection, apiHost } from "../stores/stores";
 
-    import Template from '../../UI/Template.svelte';
-    import GridBrazaletes from '../../UI/GridBrazaletes.svelte';
-    import GridTiposBrazaletes from "../../UI/GridTiposBrazaletes.svelte";
+    import Template from '../ui/Template.svelte';
+    import GridBrazaletes from '../ui/GridBrazaletes.svelte';
+    import GridTiposBrazaletes from "../ui/GridTiposBrazaletes.svelte";
 
     // export let id;
     export let tipo = null;
