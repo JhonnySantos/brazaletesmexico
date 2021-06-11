@@ -1,6 +1,5 @@
 <script>
     import { link } from 'svelte-routing';
-import Ecofriendly from '../pages/secciones/Ecofriendly.svelte';
 </script>
 
 <footer class="bg-primary text-white pt-3 mt-5">
