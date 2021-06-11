@@ -7,7 +7,7 @@
     <div class="col">
         <div class="card event-card margin-0" style="background-image: url({evento.img});">
             <!-- <h3 class="card-header bg-dark text-center text-white">{evento.descripcion}</h3> -->
-            <button class='btn btn-primary'>{evento.descripcion}</button>
+            <button class='btn btn-info'>{evento.descripcion}</button>
         </div>
     </div>
 </Link>

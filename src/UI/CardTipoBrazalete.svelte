@@ -11,7 +11,7 @@
     }
 </script>
 
-<div id={tipo.id} class="col">
+<div id={tipo.id} class="col mb-3">
     <Link class="nav-link p-0" to={tipo.slug} on:click={enviarIdTipo}>
         <div class="card card-tipo-brazalete">    
             <div class="card-body">

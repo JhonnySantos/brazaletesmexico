@@ -24,7 +24,7 @@
                 placeholder="Búsqueda"
             />
             <button
-                class="btn btn-sm btn-outline-secondary my-2 my-sm-0"
+                class="btn btn-sm btn-secondary my-2 my-sm-0"
                 type="submit"
             >
                 Buscar
@@ -34,7 +34,7 @@
         </div>
     </div>
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark py-2">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary py-2">
         <div class="container">
             <button
                 class="navbar-toggler"
