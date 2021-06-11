@@ -4,7 +4,7 @@
     export let brazaletes = [];
 </script>
 
-<div class="row row-cols-1 row-cols-md-4 justify-content-center g-3">
+<div class="row row-cols-1 row-cols-md-4 justify-content-start g-3">
     {#each brazaletes as brazalete (brazalete.id)}
         <CardBrazalete {brazalete} />
     {/each}
