@@ -1,11 +1,11 @@
 <script>
     import { onMount } from 'svelte'
+    import Section from '../UI/Section.svelte';
     import Template from '../UI/Template.svelte';
     import Carousel from '../UI/Carousel.svelte';
     import EventsGrid from '../UI/EventsGrid.svelte';
     import BenefitsGrid from '../UI/BenefitsGrid.svelte';
-    import Section from '../UI/Section.svelte';
-    import { currentSection } from "../stores/stores";
+    import { currentSection, apiHost } from "../stores/stores";
     import GridTiposBrazaletes from '../UI/GridTiposBrazaletes.svelte';
 
     let eventos = [];
@@ -35,10 +35,10 @@
     ];
 
     onMount(async () => {
-        let response = await fetch('http://localhost:3000/api/v1/eventos/all/');
+        let response = await fetch(`${$apiHost}/eventos/all/`);
         eventos = await response.json();
 
-        response = await fetch('http://localhost:3000/api/v1/tipos/all/1');
+        response = await fetch(`${$apiHost}/tipos/all/1`);
         tipos = await response.json();
     });
 </script>

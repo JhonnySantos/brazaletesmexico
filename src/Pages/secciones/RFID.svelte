@@ -1,9 +1,8 @@
 <script>
     import { onMount } from 'svelte';
-    import { currentSection } from "../../stores/stores";
-
     import Template from '../../UI/Template.svelte';
     import GridBrazaletes from '../../UI/GridBrazaletes.svelte';
+    import { currentSection, apiHost } from "../../stores/stores";
     import GridTiposBrazaletes from "../../UI/GridTiposBrazaletes.svelte";
 
     // export let id;
@@ -17,10 +16,10 @@
 
     onMount(async () => {
         if (tipo !== null) {
-            const response = await fetch(`http://localhost:3000/api/v1/brazaletes/all/${tipo}`);
+            const response = await fetch(`${$apiHost}/brazaletes/all/${tipo}`);
             brazaletes = await response.json();
         } else {
-            const response = await fetch(`http://localhost:3000/api/v1/tipos/all/${$currentSection}`);
+            const response = await fetch(`${$apiHost}/tipos/all/${$currentSection}`);
             tipos = await response.json();
         }
     });

@@ -1,10 +1,9 @@
 <script>
     import { onMount } from 'svelte';
-    import { currentSection, currentIdTipo } from "../../stores/stores";
-
     import Template from '../../UI/Template.svelte';
     import GridBrazaletes from '../../UI/GridBrazaletes.svelte';
     import GridTiposBrazaletes from "../../UI/GridTiposBrazaletes.svelte";
+    import { currentSection, currentIdTipo, apiHost } from "../../stores/stores";
 
     export let tipo = null;
     export let location;
@@ -21,15 +20,15 @@
 
     onMount(async () => {
         if (tipo !== null) {
-            let response = await fetch(`http://localhost:3000/api/v1/brazaletes/all/${tipo}`);
+            let response = await fetch(`${$apiHost}/brazaletes/all/${tipo}`);
             brazaletes = await response.json();
 
-            response = await fetch(`http://localhost:3000/api/v1/tipos/one/${$currentIdTipo}`);
+            response = await fetch(`${$apiHost}/tipos/one/${$currentIdTipo}`);
             
             titulo = await response.json();
             titulo = titulo.descripcion.toUpperCase();
         } else {
-            const response = await fetch(`http://localhost:3000/api/v1/tipos/all/${$currentSection}`);
+            const response = await fetch(`${$apiHost}/tipos/all/${$currentSection}`);
             tipos = await response.json();
         }
     });
