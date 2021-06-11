@@ -40,7 +40,9 @@
 
 <style>
 	:global(.card-tipo-brazalete) {
-        min-height: 300px;
+		height: 320px;
+		min-height: 320px;
+		max-height: 320px;
         cursor: pointer;
     }
 </style>
