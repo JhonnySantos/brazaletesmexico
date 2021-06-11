@@ -1,23 +1,28 @@
 <script>
-    import { Link } from 'svelte-routing';
+    import { link } from 'svelte-routing';
     export let evento = null;
 </script>
 
-<Link class='nav-link'>
-    <div class="col">
-        <div class="card event-card margin-0" style="background-image: url({evento.img});">
-            <!-- <h3 class="card-header bg-dark text-center text-white">{evento.descripcion}</h3> -->
-            <button class='btn btn-info'>{evento.descripcion}</button>
-        </div>
+<div class="col py-3">
+    <div class="card justify-content-end event-card border-info" style="background-image: url({evento.img});">
+        <!-- <h3 class="card-header bg-dark text-center text-white">{evento.descripcion}</h3> -->
+        <a href="/" class='btn btn-info mx-auto' use:link>
+            {evento.descripcion}
+        </a>
     </div>
-</Link>
+</div>
 
 
 <style>
     .event-card {
-        min-height: 350px;
+        min-height: 280px;
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
+    }
+
+    .event-card a {
+        width: 70%;
+        margin-bottom: 25px;
     }
 </style>

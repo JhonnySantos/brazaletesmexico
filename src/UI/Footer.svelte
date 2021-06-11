@@ -1,3 +1,8 @@
+<script>
+    import { link } from 'svelte-routing';
+import Ecofriendly from '../pages/secciones/Ecofriendly.svelte';
+</script>
+
 <footer class="bg-primary text-white pt-3 mt-5">
     <div class="container">
     <div class="row">
@@ -23,31 +28,31 @@
         </div>
 
         <div class="col">
-        <p><strong>Referred Links</strong></p>
+        <p><strong>VÍNCULOS DE INTERÉS</strong></p>
         <ul class="list-unstyled">
             <li class="mb-2 small">
-                <a class="link-light text-white" href>About Us</a>
+                <a href='/brazaletes' use:link class="link-light text-white">Brazalete</a>
             </li>
             <li class="mb-2 small">
-                <a class="link-light text-white" href>Contact</a>
+                <a href='/rfid' use:link class="link-light text-white">Soluciones RFID</a>
             </li>
             <li class="mb-2 small">
-                <a class="link-light text-white" href>Terms and conditions</a>
+                <a href='/ecofriendly' use:link class="link-light text-white">Ecofriendly</a>
             </li>
             <li class="mb-2 small">
-                <a class="link-light text-white" href>Privacy policy</a>
+                <a href='/hologramas' use:link class="link-light text-white">Hologramas</a>
             </li>
             <li class="mb-2 small">
-                <a class="link-light text-white" href>Site Map</a>
+                <a href='/promocionales' use:link class="link-light text-white">Promocionales</a>
             </li>
-            <li class="small">
-            <a class="link-light text-white" href>Shipping</a>
-            </li>
+            <!-- <li class="small">
+                <a class="link-light text-white" href>Shipping</a>
+            </li> -->
         </ul>
         </div>
         
         <div class="col">
-        <p><strong>Social Networks</strong></p>
+        <p><strong>SÍGUENOS</strong></p>
         <ul class="list-unstyled">
             <li class="mb-2 small">
                 <a class="text-white" target="_blank" href="https://twitter.com/BrazaletesMex">
