@@ -24,5 +24,6 @@
   "dependencies": {
     "sirv-cli": "^1.0.0",
     "svelte-routing": "^1.6.0"
-  }
+  },
+  "heroku-postbuild": "npm run build"
 }
