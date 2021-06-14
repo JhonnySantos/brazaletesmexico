@@ -5,7 +5,7 @@
 <div class="container section-title-container my-5">
     <h3 class="section-title section-title-center">
         <b></b>
-            <span class="section-title-main">{name}</span>
+            <span class="section-title-main text-uppercase">{name}</span>
         <b></b>
     </h3>
 </div>

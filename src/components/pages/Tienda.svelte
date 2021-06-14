@@ -21,7 +21,7 @@
         <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 justify-content-center g-3">
             {#each brazaletes as brazalete (brazalete.id)}
                 <div id={brazalete.id} class="col">
-                    <Link class="nav-link p-0">
+                    <Link class="nav-link p-0" to="/tienda/{brazalete.slug}">
                         <div class="card card-tipo-brazalete border-0">
                             <img src="{brazalete.img}" alt="">
 
