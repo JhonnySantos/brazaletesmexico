@@ -1,11 +1,12 @@
 <script>
     import { onMount } from "svelte";
     import { Link } from 'svelte-routing';
-    import { apiHost } from '../stores/stores';
-
+    import { apiHost, currentSection } from '../stores/stores';
     import Template from "../ui/Template.svelte";
 
     let brazaletes = [];
+
+    $currentSection = 6;
 
     onMount(async () => {
         const response = await fetch(`${$apiHost}/brazaletes/all/`);
