@@ -1,5 +1,5 @@
 <script>
-	import {Router, Route, Link} from "svelte-routing";
+	import {Router, Route} from "svelte-routing";
 
 	import Home from './components/pages/Home.svelte';
 	import Brazaletes from './components/pages/Brazaletes.svelte';
@@ -8,6 +8,7 @@
 	import Hologramas from './components/pages/Hologramas.svelte';
 	import Promocionales from './components/pages/Promocionales.svelte';
 	import Tienda from './components/pages/Tienda.svelte';
+	import TiendaDetails from "./components/pages/TiendaDetails.svelte";
 </script>
 
 <Router>
@@ -35,7 +36,7 @@
 		<!-- <Route path="/promocionales/:tipo/:id" component={Promocionales} let:params /> -->
 
 		<Route path="/tienda" component={Tienda} />
-		<Route path="/tienda/:id" component={Tienda} />
+		<Route path="/tienda/:id" component={TiendaDetails} let:params />
 	</div>
 </Router>
 

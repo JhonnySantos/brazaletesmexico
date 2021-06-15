@@ -1,6 +1,6 @@
 <script>
     import { onMount } from 'svelte';
-    import { currentSection, currentIdTipo, apiHost } from "../stores/stores";
+    import { currentSection, currentIdTipo, apiHost } from "../../stores/stores";
     
     import Template from '../ui/Template.svelte';
     import GridBrazaletes from '../ui/GridBrazaletes.svelte';

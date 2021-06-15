@@ -4,7 +4,7 @@
     export let brazalete = {};
 </script>
 
-<div id={brazalete.id} class="col mb-3">
+<div id={brazalete.id} class="col">
     <Link class="nav-link p-0" to={brazalete.route}>
         <div class="card card-tipo-brazalete">    
             <div class="card-body">
