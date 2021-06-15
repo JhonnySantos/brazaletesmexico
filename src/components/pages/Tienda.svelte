@@ -1,11 +1,12 @@
 <script>
     import { onMount } from "svelte";
     import { Link } from 'svelte-routing';
-    import { apiHost } from '../stores/stores';
-
+    import { apiHost, currentSection } from '../../stores/stores';
     import Template from "../ui/Template.svelte";
 
     let brazaletes = [];
+
+    $currentSection = 6;
 
     onMount(async () => {
         const response = await fetch(`${$apiHost}/brazaletes/all/`);
@@ -21,7 +22,7 @@
         <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 justify-content-center g-3">
             {#each brazaletes as brazalete (brazalete.id)}
                 <div id={brazalete.id} class="col">
-                    <Link class="nav-link p-0">
+                    <Link class="nav-link p-0" to="/tienda/{brazalete.slug}">
                         <div class="card card-tipo-brazalete border-0">
                             <img src="{brazalete.img}" alt="">
 

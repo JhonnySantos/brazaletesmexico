@@ -1,7 +1,7 @@
 <script>
     import { onMount } from "svelte"
     import { Link } from "svelte-routing";
-    import { currentSection, apiHost } from "../stores/stores";
+    import { currentSection, apiHost } from "../../stores/stores";
 
     let secciones = [];
 
