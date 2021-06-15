@@ -1,7 +1,7 @@
 <script>
     import { onMount } from "svelte";
     import { Link } from 'svelte-routing';
-    import { apiHost, currentSection } from '../stores/stores';
+    import { apiHost, currentSection } from '../../stores/stores';
     import Template from "../ui/Template.svelte";
 
     let brazaletes = [];
