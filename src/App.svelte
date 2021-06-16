@@ -42,9 +42,18 @@
 
 <style>
 	:global(.card-tipo-brazalete) {
-		height: 320px;
-		min-height: 320px;
-		max-height: 320px;
+		/* height: 320px; */
+		/* min-height: 320px; */
+		/* max-height: 320px; */
         cursor: pointer;
+    }
+
+	:global(.card-tipo-brazalete:hover) {
+		opacity: 0.7;
+		box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+    }
+
+	:global(.link-ecofriendly:hover) {
+        color: #38eeab !important;
     }
 </style>

@@ -32,7 +32,7 @@
             </div>
         </div>
 
-        <div class="col-12 col-sm-12 col-md-6 col-lg-4 mb-3">
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4 d-none d-sm-none d-md-block mb-3">
             <p><strong class="fw-bold">VÍNCULOS DE INTERÉS</strong></p>
             <ul class="list-unstyled">
                 <li class="mb-2 small">
