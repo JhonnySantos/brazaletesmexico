@@ -65,7 +65,7 @@
                     <div class="col-auto">
                         <div class="input-group input-group-sm">
                             <button class="btn btn-outline-secondary border border-secondary" type="button" id="button-addon1"> - </button>
-                            <input type="number" class="form-control ps-3 pe-0 text-center border border-secondary" min="1" max="99" aria-label="Example text with button addon" aria-describedby="button-addon1" value="1">
+                            <input type="number" class="form-control text-center border border-secondary" min="1" max="99" aria-label="Example text with button addon" aria-describedby="button-addon1" value="1">
                             <button class="btn btn-outline-secondary border border-secondary" type="button" id="button-addon2"> + </button>
                         </div>
                     </div>
@@ -78,3 +78,15 @@
         </div>
     </div>
 </Template>
+
+<style>
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+    }
+
+    input[type=number] {
+    -moz-appearance: textfield;
+    }
+</style>

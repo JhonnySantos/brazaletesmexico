@@ -36,7 +36,7 @@
 		<!-- <Route path="/promocionales/:tipo/:id" component={Promocionales} let:params /> -->
 
 		<Route path="/tienda" component={Tienda} />
-		<Route path="/tienda/:id" component={TiendaDetails} let:params />
+		<Route path="/tienda/:slug" component={TiendaDetails} let:params />
 	</div>
 </Router>
 
