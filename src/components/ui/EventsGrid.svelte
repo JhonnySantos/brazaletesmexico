@@ -1,5 +1,5 @@
 <script>
-    import EventCard from '../UI/EventCard.svelte';
+    import EventCard from './EventCard.svelte'
 
     export let eventos = [];
 </script>
