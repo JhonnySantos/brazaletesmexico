@@ -23,33 +23,10 @@
 
         {#each secciones as seccion (seccion.id)}
             <li class="nav-item">
-                <Link class="nav-link {$currentSection == seccion.id ? 'active' : ''}" to="/{seccion.slug}">
+                <Link class="nav-link {seccion.descripcion === "ECOFRIENDLY" ? "link-ecofriendly" : ""} {$currentSection == seccion.id ? 'active' : ''}" to="/{seccion.slug}">
                     {seccion.descripcion}
                 </Link>
             </li>
         {/each}
     </ul>
 </div>
-
-<!-- <li class="nav-item dropdown">
-    <a
-    class="nav-link dropdown-toggle"
-    data-bs-toggle="dropdown"
-    href
-    role="button"
-    aria-haspopup="true"
-    aria-expanded="false"
-    >
-        PROMOCIONALES
-    </a>
-    <div class="dropdown-menu">
-    <a class="dropdown-item" href>Soporte para celular</a>
-    <a class="dropdown-item" href>Porta gafete</a>
-    <a class="dropdown-item" href>Boletos</a>
-    <a class="dropdown-item" href>Tarjetas</a>
-    <a class="dropdown-item" href>Gafete con pin</a>
-    <a class="dropdown-item" href>Candados</a>
-    <a class="dropdown-item" href>Blondas</a>
-    <a class="dropdown-item" href>Maleteros</a>
-    <a class="dropdown-item" href>QR para restaurantes</a>
-</li> -->

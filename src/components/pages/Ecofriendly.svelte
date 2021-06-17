@@ -6,6 +6,7 @@
 
     import GridBrazaletes from '../ui/GridBrazaletes.svelte';
     import GridTiposBrazaletes from "../ui/GridTiposBrazaletes.svelte";
+    import Jumbotron from '../ui/Jumbotron.svelte';
 
     // export let id;
     export let location;
@@ -35,6 +36,10 @@
 
 <Template>
     <h1 class='text-center my-5'>Brazaletes Ecofriendly</h1>
+
+    <div class="container mb-5">
+        <Jumbotron />
+    </div>
 
     <div class="container my-5">
             {#if tipo !== null}

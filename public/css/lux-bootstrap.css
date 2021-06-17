@@ -5761,7 +5761,7 @@ textarea.form-control-lg {
 }
 
 .link-light {
-  color: #fff;
+  color: rgba(255, 255, 255, 0.75);
 }
 .link-light:hover, .link-light:focus {
   color: white;
