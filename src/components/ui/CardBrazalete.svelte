@@ -5,24 +5,17 @@
 </script>
 
 <div id={brazalete.id} class="col">
-    <Link class="nav-link p-0" to={brazalete.route}>
-        <div class="card card-tipo-brazalete">    
-            <div class="card-body">
+    <Link class="nav-link p-0 h-100" to={brazalete.route}>
+        <div class="card card-tipo-brazalete h-100">    
+            <div class="card-body pb-0">
                 <h5 class="card-title text-center fw-bold">{brazalete.descripcion}</h5>
             </div>
         
-            <img src="{brazalete.img}" alt="{brazalete.descripcion}">
+            <img 
+                src="{brazalete.img}" 
+                class="card-img-bottom" 
+                alt="{brazalete.descripcion}"
+            >
         </div>
     </Link>
 </div>
-
-<style>
-    .card-tipo-brazalete:hover {
-        opacity: 0.7;
-    }
-
-    .card-tipo-brazalete img {
-        width: 230px !important;
-        margin: 20px auto !important;
-    }
-</style>
