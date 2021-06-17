@@ -1,5 +1,5 @@
 <script>
-    import CardTipoBrazalete from '../UI/CardTipoBrazalete.svelte';
+    import CardTipoBrazalete from './CardTipoBrazalete.svelte';
     export let tipos = [];
 </script>
 
