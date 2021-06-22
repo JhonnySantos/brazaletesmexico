@@ -1,4 +1,10 @@
 <script>
+	import '../node_modules/@fortawesome/fontawesome-free/css/all.css'
+	import './assets/css/lux-bootstrap.css'
+
+	import './assets/js/all.js'
+	import './assets/js/main'
+
 	import {Router, Route} from "svelte-routing";
 
 	import Home from './components/pages/Home.svelte';
@@ -8,7 +14,7 @@
 	import Hologramas from './components/pages/Hologramas.svelte';
 	import Promocionales from './components/pages/Promocionales.svelte';
 	import Tienda from './components/pages/Tienda.svelte';
-	import TiendaDetails from "./components/pages/TiendaDetails.svelte";
+	import Brazalete from "./components/pages/Brazalete.svelte";
 </script>
 
 <Router>
@@ -17,26 +23,26 @@
 
 		<Route path="/brazaletes" component={Brazaletes} />
 		<Route path="/brazaletes/:tipo" component={Brazaletes} let:params />
-		<!-- <Route path="/brazaletes/:tipo/:id" component={Brazaletes} let:params /> -->
+		<Route path="/brazaletes/:tipo/:slug" component={Brazalete} let:params />
 
 		<Route path="/rfid" component={RFID} />
 		<Route path="/rfid/:tipo" component={RFID} let:params />
-		<!-- <Route path="/rfid/:tipo/:id" component={RFID} let:params /> -->
+		<Route path="/rfid/:tipo/:slug" component={Brazalete} let:params />
 
 		<Route path="/ecofriendly" component={Ecofriendly} />
 		<Route path="/ecofriendly/:tipo" component={Ecofriendly} let:params />
-		<!-- <Route path="/ecofriendly/:tipo/:id" component={Ecofriendly} let:params /> -->
+		<Route path="/ecofriendly/:tipo/:slug" component={Brazalete} let:params />
 
 		<Route path="/hologramas" component={Hologramas} />
 		<Route path="/hologramas/:tipo" component={Hologramas} let:params />
-		<!-- <Route path="/hologramas/:tipo/:id" component={Hologramas} let:params /> -->
+		<Route path="/hologramas/:tipo/:slug" component={Brazalete} let:params />
 
 		<Route path="/promocionales" component={Promocionales} />
 		<Route path="/promocionales/:tipo" component={Promocionales} let:params />
-		<!-- <Route path="/promocionales/:tipo/:id" component={Promocionales} let:params /> -->
+		<Route path="/promocionales/:tipo/:slug" component={Brazalete} let:params />
 
 		<Route path="/tienda" component={Tienda} />
-		<Route path="/tienda/:slug" component={TiendaDetails} let:params />
+		<Route path="/tienda/:slug" component={Brazalete} let:params />
 	</div>
 </Router>
 

@@ -14,8 +14,6 @@
     let eventos = [];
     export let location = "";
 
-    console.log(location);
-
     $currentSection = 0;
 
     const benefits = [

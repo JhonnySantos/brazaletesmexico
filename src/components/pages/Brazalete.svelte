@@ -8,8 +8,6 @@
     onMount(async () => {
         const response = await fetch(`http://localhost:3000/api/v1/brazaletes/one/${slug}`)
         brazalete = await response.json()
-
-        console.log(brazalete);
     });
 </script>
 

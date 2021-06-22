@@ -6,7 +6,7 @@
 <div class="col">
     <div class="card justify-content-end event-card border-info" style="background-image: url({evento.img});">
         <!-- <h3 class="card-header bg-dark text-center text-white">{evento.descripcion}</h3> -->
-        <a href="/" class='btn btn-info mx-auto' use:link>
+        <a href="/" class='btn btn-secondary mx-auto' use:link>
             {evento.descripcion}
         </a>
     </div>
@@ -22,7 +22,7 @@
     }
 
     .event-card a {
-        width: 70%;
+        width: 50%;
         margin-bottom: 25px;
     }
 </style>

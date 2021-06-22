@@ -1,6 +1,5 @@
 <script>
     import CardBrazalete from "./CardBrazalete.svelte";
-
     export let brazaletes = [];
 </script>
 
