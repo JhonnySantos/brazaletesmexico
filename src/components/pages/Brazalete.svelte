@@ -1,12 +1,15 @@
 <script>
     import { onMount } from 'svelte'
+
+    import { apiHost } from '../../stores/stores.js'
+
     import Template from "../ui/Template.svelte"
 
     export let slug = ''
     let brazalete = {}
 
     onMount(async () => {
-        const response = await fetch(`http://localhost:3000/api/v1/brazaletes/one/${slug}`)
+        const response = await fetch(`${$apiHost}/brazaletes/one/${slug}`)
         brazalete = await response.json()
     });
 </script>
