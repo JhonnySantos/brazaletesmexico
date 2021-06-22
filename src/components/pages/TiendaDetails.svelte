@@ -1,5 +1,16 @@
 <script>
-    import Template from "../ui/Template.svelte";
+    import { onMount } from 'svelte'
+    import Template from "../ui/Template.svelte"
+
+    export let slug = ''
+    let brazalete = {}
+
+    onMount(async () => {
+        const response = await fetch(`http://localhost:3000/api/v1/brazaletes/one/${slug}`)
+        brazalete = await response.json()
+
+        console.log(brazalete);
+    });
 </script>
 
 <Template>
@@ -7,16 +18,16 @@
         <div class="row">
             <div class="col-12 col-sm-12 col-md-5">
                 <img 
-                    src="https://www.brazaletesmexico.com/wp-content/uploads/brazalete-con-gel-antibacterial-amarillo-tramsparente-1.jpg" 
+                    src="{brazalete.img}" 
                     alt="Brazalete con gel antibacterial Amarillo Transparente sin impresión"
                     class="img-fluid"
                 >
             </div>
             <div class="col-12 col-sm-12 col-md-7">
-                <h4 class="fw-bold mb-1">Brazalete con gel antibacterial Amarillo Transparente sin impresión</h4>
+                <h4 class="fw-bold mb-1">{brazalete.descripcion}</h4>
                 <h6 class="mb-3 text-muted"><strong class="fw-bold">SKU:</strong> BGA-AMA-1823-0001</h6>
                 <p class="">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit, at! Voluptas illum minima exercitationem numquam, ipsa excepturi quasi, quis temporibus similique culpa sed accusamus quos sunt sint error, suscipit provident!</p>
-                <h5 class="fw-bold my-4 text-primary">$200.00 - $1,000.00</h5>
+                <h5 class="fw-bold my-4 text-primary">${brazalete.precio_min} + I.V.A</h5>
                 <hr>
                 <div class="mb-3">
                     <label for="paquetes" class="form-label d-block">Paquete de:</label>
