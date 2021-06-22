@@ -5,12 +5,10 @@
 
     let secciones = [];
 
-
     onMount(async () => {
         const response = await fetch(`${$apiHost}/secciones`);
         secciones = await response.json();
     });
-
 </script>
 
 <div class="collapse navbar-collapse" id="navbarColor02">

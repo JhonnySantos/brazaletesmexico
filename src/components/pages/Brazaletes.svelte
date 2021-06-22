@@ -10,8 +10,6 @@
     export let tipo = null;
     export let location;
 
-    console.log(location);
-
     $currentSection = 1;
 
     let tipos = [];

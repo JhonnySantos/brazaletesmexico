@@ -68,6 +68,6 @@
 
     .social-media a{
         margin-right: 5px !important;
-        font-size: 16px !important;
+        font-size: 18px !important;
     }
 </style>
