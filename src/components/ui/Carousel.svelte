@@ -30,7 +30,7 @@
                     class="card-img"
                     alt=""
                 />
-                <div class="card-img-overlay container px-3">
+                <div class="card-img-overlay container-lg px-3 px-md-5">
                     <div class="row h-100 align-items-center">
                         <div class="col-12 col-md-6 pe-lg-5 text-center text-md-start bounce">
                             <h1 class="display-4 text-primary fw-bold">Diseños preestablecidos</h1>
