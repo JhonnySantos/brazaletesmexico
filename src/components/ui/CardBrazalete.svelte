@@ -1,7 +1,7 @@
 <script>
     import { Link } from 'svelte-routing';
 
-    export let brazalete = {}; console.log(brazalete);
+    export let brazalete = {};
 </script>
 
 <div id={brazalete.id} class="col">

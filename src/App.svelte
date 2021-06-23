@@ -14,7 +14,7 @@
 	import Hologramas from './components/pages/Hologramas.svelte';
 	import Promocionales from './components/pages/Promocionales.svelte';
 	import Tienda from './components/pages/Tienda.svelte';
-	import Brazalete from "./components/pages/Brazalete.svelte";
+	import BrazaleteDetalle from "./components/pages/BrazaleteDetalle.svelte";
 </script>
 
 <Router>
@@ -23,26 +23,26 @@
 
 		<Route path="/brazaletes" component={Brazaletes} />
 		<Route path="/brazaletes/:tipo" component={Brazaletes} let:params />
-		<Route path="/brazaletes/:tipo/:slug" component={Brazalete} let:params />
+		<Route path="/brazaletes/:tipo/:slug" component={BrazaleteDetalle} let:params />
 
 		<Route path="/rfid" component={RFID} />
 		<Route path="/rfid/:tipo" component={RFID} let:params />
-		<Route path="/rfid/:tipo/:slug" component={Brazalete} let:params />
+		<Route path="/rfid/:tipo/:slug" component={BrazaleteDetalle} let:params />
 
 		<Route path="/ecofriendly" component={Ecofriendly} />
 		<Route path="/ecofriendly/:tipo" component={Ecofriendly} let:params />
-		<Route path="/ecofriendly/:tipo/:slug" component={Brazalete} let:params />
+		<Route path="/ecofriendly/:tipo/:slug" component={BrazaleteDetalle} let:params />
 
 		<Route path="/hologramas" component={Hologramas} />
 		<Route path="/hologramas/:tipo" component={Hologramas} let:params />
-		<Route path="/hologramas/:tipo/:slug" component={Brazalete} let:params />
+		<Route path="/hologramas/:tipo/:slug" component={BrazaleteDetalle} let:params />
 
 		<Route path="/promocionales" component={Promocionales} />
 		<Route path="/promocionales/:tipo" component={Promocionales} let:params />
-		<Route path="/promocionales/:tipo/:slug" component={Brazalete} let:params />
+		<Route path="/promocionales/:tipo/:slug" component={BrazaleteDetalle} let:params />
 
 		<Route path="/tienda" component={Tienda} />
-		<Route path="/tienda/:slug" component={Brazalete} let:params />
+		<Route path="/tienda/:slug" component={BrazaleteDetalle} let:params />
 	</div>
 </Router>
 

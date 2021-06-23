@@ -1,39 +1,41 @@
 <script>
-    import { onMount } from 'svelte';
-    import { currentSection, currentIdTipo, apiHost } from "../../stores/stores";
+    import { onMount } from 'svelte'
+    import { currentSection, currentIdTipo, apiHost } from "../../stores/stores"
     
-    import Template from '../ui/Template.svelte';
-    import GridBrazaletes from '../ui/GridBrazaletes.svelte';
-    import GridTiposBrazaletes from "../ui/GridTiposBrazaletes.svelte";
-    import Jumbotron from '../ui/Jumbotron.svelte';
+    import Template from '../ui/Template.svelte'
+    import GridBrazaletes from '../ui/GridBrazaletes.svelte'
+    import GridTiposBrazaletes from "../ui/GridTiposBrazaletes.svelte"
+    import Jumbotron from '../ui/Jumbotron.svelte'
 
-    export let tipo = null;
-    export let location;
+    export let tipo = null
+    export let location
 
-    $currentSection = 1;
+    $currentSection = 1
 
-    let tipos = [];
-    let brazaletes = [];
-    let titulo = 'Brazaletes México';
+    let tipos = []
+    let brazaletes = []
+    let titulo = ''
 
     const updateIdTipo = (event) => {
-        $currentIdTipo = event.detail;
-    };
+        $currentIdTipo = event.detail
+        localStorage.setItem('currentIdTipo', event.detail)
+    }
 
     onMount(async () => {
         if (tipo !== null) {
-            let response = await fetch(`${$apiHost}/brazaletes/all/${tipo}`);
-            brazaletes = await response.json();
+            let response = await fetch(`${$apiHost}/brazaletes/all/${tipo}`)
+            brazaletes = await response.json()
 
-            response = await fetch(`${$apiHost}/tipos/one/${$currentIdTipo}`);
+            response = await fetch(`${$apiHost}/tipos/one/${$currentIdTipo}`)
             
-            titulo = await response.json();
-            titulo = titulo.descripcion.toUpperCase();
+            titulo = await response.json()
+            titulo = titulo.descripcion.toUpperCase()
         } else {
-            const response = await fetch(`${$apiHost}/tipos/all/${$currentSection}`);
-            tipos = await response.json();
+            const response = await fetch(`${$apiHost}/tipos/all/${$currentSection}`)
+            tipos = await response.json()
+            titulo = 'Brazaletes México'
         }
-    });
+    })
 </script>
 
 <svelte:head>
