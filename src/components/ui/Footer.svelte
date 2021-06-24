@@ -2,7 +2,7 @@
     import { link } from 'svelte-routing';
 </script>
 
-<footer class="bg-primary text-white pt-3 mt-5">
+<footer class="bg-primary text-white pt-3">
     <div class="container">
     <div class="row px-3">
         <div class="col-12 col-sm-12 col-md-12 col-lg-4 mb-3">
