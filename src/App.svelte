@@ -15,6 +15,7 @@
 	import Promocionales from './components/pages/Promocionales.svelte';
 	import Tienda from './components/pages/Tienda.svelte';
 	import BrazaleteDetalle from "./components/pages/BrazaleteDetalle.svelte";
+	import NotFoundPage from './components/pages/NotFoundPage.svelte';
 </script>
 
 <Router>
@@ -43,6 +44,8 @@
 
 		<Route path="/tienda" component={Tienda} />
 		<Route path="/tienda/:slug" component={BrazaleteDetalle} let:params />
+
+		<Route component={NotFoundPage} />
 	</div>
 </Router>
 
