@@ -9,46 +9,54 @@
     let brazalete = {}
 
     let modal;
+    let formCotizacion = null
 
-    let cantidad = 1
     let estados = []
     let municipios = []
     let customCantidad = null
     let disabledCustomCantidad = true
 
     let medida = 18
-    
-    let cotizacion = {
-        cantidad: 0,
-        medida: 0,
-        nombre: "",
-        email: "",
-        direccion: "",
-        telefono: "",
-        estado: -1,
-        municipio: -1,
-        codigoPostal: "",
-        imagen: "",
-        informacionAdicional: ""
-    }
+    let cantidad = 1
+    let imagenImpresion = null
+    let nombre = ""
+    let email = ""
+    let direccion = ""
+    let telefono = ""
+    let estado = ""
+    let ciudad = ""
+    let codigoPostal = ""
+    let informacionAdicional = ""
 
-    $:cotizacion.cantidad = cantidad === -1 ?  cantidad : customCantidad
+    $:cantidad = cantidad !== -1 ?  cantidad : customCantidad
     $:disabledCustomCantidad = cantidad === -1 ?  false : true
-    $:cotizacion.medida = medida
 
-    // $: if (cotizacion.estado === -1) {
-    //     municipios = []
-    // } else {
-    //     fetch('https://raw.githubusercontent.com/martinciscap/json-estados-municipios-mexico/master/estados-municipios.json')
-    //     .then((response) => response.json())
-    //     .then((data) => {
-    //         console.log(data)
-    //         console.log(cotizacion.estado)
-    //     });
-    // }
+    const handleSubmit = async () => { console.log(imagenImpresion.files[0])
+        const errorData = [
+            cantidad,
+            medida,
+            nombre,
+            email,
+            direccion,
+            telefono,
+            estado,
+            ciudad,
+            codigoPostal,
+        ].some((value) => [null, undefined, "", 0].includes(value))
 
-    const handleSubmit = () => {
+        if (!errorData) {
+            const fd = new FormData(formCotizacion)
 
+            fd.append('cantidad', cantidad)
+            fd.append('medida', medida)
+
+            console.log(imagen)
+
+            // const response = await fetch(fd, {
+            //     method: 'POST',
+            //     body: fd
+            // })
+        }
     }
 
     const handleCotizacionModal = () => {
@@ -63,9 +71,6 @@
     onMount(async () => {
         let response = await fetch(`${$apiHost}/brazaletes/one/${slug}`)
         brazalete = await response.json()
-
-        // response = await fetch('https://raw.githubusercontent.com/martinciscap/json-estados-municipios-mexico/master/estados.json')
-        // estados = await response.json()
     });
 </script>
 
@@ -158,45 +163,45 @@
                     </div>
 
                     <div class="modal-body">
-                        <form on:submit|preventDefault={handleSubmit}>
+                        <form on:submit|preventDefault={handleSubmit} bind:this={formCotizacion}>
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="mb-3">
                                         <label class="form-label" for="nombre">Nombre *</label>
-                                        <input type="text" name="nombre" id="nombre" class="form-control form-control-sm text-center" bind={cotizacion.email}>
+                                        <input type="text" name="nombre" id="nombre" class="form-control form-control-sm text-center" bind:value={nombre}>
                                     </div>
                 
                                     <div class="mb-3">
                                         <label class="form-label" for="email">Email *</label>
-                                        <input type="text" name="email" id="email" class="form-control form-control-sm text-center" bind={cotizacion.email}>
+                                        <input type="text" name="email" id="email" class="form-control form-control-sm text-center" bind:value={email}>
                                     </div>
 
                                     <div class="mb-3">
                                         <label class="form-label" for="imagen">Imagen de impresión</label>
-                                        <input type="file" name="imagen" id="imagen" class="form-control form-control-sm" bind={cotizacion.imagen}>
+                                        <input type="file" name="imagen" id="imagen" class="form-control form-control-sm" bind:this={imagenImpresion}>
                                     </div>
                 
                                     <div class="mb-3">
                                         <label class="form-label" for="adicional">Información adicional</label>
-                                        <textarea name="adicional" id="adicional" rows="5" class="form-control form-control-sm text-center" bind={cotizacion.informacionAdicional}></textarea>
+                                        <textarea name="adicional" id="adicional" rows="5" class="form-control form-control-sm" bind:value={informacionAdicional}></textarea>
                                     </div>
                                 </div>
 
                                 <div class="col-md-6">
                                     <div class="mb-3">
                                         <label class="form-label" for="direccion">Dirección *</label>
-                                        <input type="text" name="direccion" id="direccion" class="form-control form-control-sm text-center" bind={cotizacion.direccion}>
+                                        <input type="text" name="direccion" id="direccion" class="form-control form-control-sm text-center" bind:value={direccion}>
                                     </div>
                 
                                     <div class="mb-3">
                                         <label class="form-label" for="telefono">Teléfono *</label>
-                                        <input type="text" name="telefono" id="telefono" class="form-control form-control-sm text-center" bind={cotizacion.telefono}>
+                                        <input type="text" name="telefono" id="telefono" class="form-control form-control-sm text-center" bind:value={telefono}>
                                     </div>
                 
                                     <div class="mb-3">
                                         <label class="form-label" for="estado">Estado *</label>
-                                        <input type="text" name="estado" id="estado" class="form-control form-control-sm">
-                                        <!-- <select name="estado" class="form-select  form-select-sm" bind:value="{cotizacion.estado}">
+                                        <input type="text" name="estado" id="estado" class="form-control form-control-sm text-center">
+                                        <!-- <select name="estado" class="form-select  form-select-sm" bind:value="{estado}">
                                             <option value="-1">Seleccionar estado</option>
                                             {#each estados as estado (estado.clave)}
                                                 <option value="{estado.nombre}">{estado.nombre}</option>
@@ -206,8 +211,8 @@
 
                                     <div class="mb-3">
                                         <label class="form-label" for="ciudad">Ciudad *</label>
-                                        <input type="text" name="ciudad" id="ciudad" class="form-control form-control-sm">
-                                        <!-- <select name="municipio" class="form-select form-select-sm" bind:value={cotizacion.municipio}>
+                                        <input type="text" name="ciudad" id="ciudad" class="form-control form-control-sm text-center" bind:value={ciudad}>
+                                        <!-- <select name="municipio" class="form-select form-select-sm" bind:value={municipio}>
                                             <option value="-1"> Seleccionar municipio </option>
                                             {#each municipios as municipio (municipio.clave)}
                                                 <option value="{municipio.nombre}">{municipio.nombre}</option>
@@ -217,7 +222,7 @@
                 
                                     <div class="mb-3">
                                         <label class="form-label" for="cp">Código Postal *</label>
-                                        <input type="text" name="cp" id="cp" class="form-control form-control-sm text-center" bind={cotizacion.codigoPostal}>
+                                        <input type="text" name="cp" id="cp" class="form-control form-control-sm text-center" bind:value={codigoPostal}>
                                     </div>
                                 </div>
                             </div>
