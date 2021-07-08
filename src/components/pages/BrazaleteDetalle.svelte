@@ -45,27 +45,41 @@
             codigoPostal,
         };
 
-        console.log(params);
 
         const errorParams = Object.values(params).some((value) => {
-            console.log(value, [null, undefined, "", 0].includes(value));
             return [null, undefined, "", 0].includes(value);
         });
 
         if (!errorParams) {
-            console.log("No errores");
-            setParamsLocalStorage(params);
+            setLocalStorageParams(params);
+            const fd = obtenerFormDataCotizacion(params);
+
+            const response = await fetch(`${$apiHost}/cotizaciones`, {
+                method  : 'POST',
+                body    : fd
+            });
+
+            // response = await response.json();
         }
     };
 
-    const setParamsLocalStorage = (params) => {
+    const obtenerFormDataCotizacion = (params) => {
+        const fd = new FormData(formCotizacion);
+
         Object.keys(params).forEach((key) => {
-            console.log(`${key}: ${params[key]}`);
+            !fd.has(key) && fd.append(`${key}`, params[key])
+        });
+
+        return fd;
+    }
+
+    const setLocalStorageParams = (params) => {
+        Object.keys(params).forEach((key) => {
             localStorage.setItem(`${key}`, params[key]);
         });
     };
 
-    const handleCotizacionModal = () => {
+    const handleModalCotizacion = () => {
         const bsModal = new bootstrap.Modal(modal, {
             backdrop: "static",
             keyboard: false,
@@ -260,7 +274,7 @@
                         <div class="col-12 col-sm-12 col-md-3 d-grid">
                             <button
                                 class="btn btn-secondary px-5"
-                                on:click={handleCotizacionModal}
+                                on:click={handleModalCotizacion}
                             >
                                 Cotizar
                             </button>
@@ -327,10 +341,10 @@
                                             >
                                             <input
                                                 type="file"
-                                                name="imagen"
-                                                id="imagen"
+                                                name="imagenImpresion"
+                                                id="imagenImpresion"
                                                 class="form-control form-control-sm"
-                                                bind:this={imagenImpresion}
+                                                bind:value={imagenImpresion}
                                             />
                                         </div>
 
@@ -341,8 +355,8 @@
                                                 >Información adicional</label
                                             >
                                             <textarea
-                                                name="adicional"
-                                                id="adicional"
+                                                name="informacionAdicional"
+                                                id="informacionAdicional"
                                                 rows="5"
                                                 class="form-control form-control-sm"
                                                 bind:value={informacionAdicional}
@@ -426,8 +440,8 @@
                                             >
                                             <input
                                                 type="text"
-                                                name="cp"
-                                                id="cp"
+                                                name="codigoPostal"
+                                                id="codigoPostal"
                                                 class="form-control form-control-sm text-center"
                                                 bind:value={codigoPostal}
                                             />
