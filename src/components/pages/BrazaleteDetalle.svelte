@@ -3,17 +3,21 @@
     import { apiHost } from "../../stores/stores.js";
 
     import Template from "../ui/Template.svelte";
+    import Loading from "../ui/Loading.svelte";
 
     export let slug = "";
 
     let brazalete = {};
 
-    let modal;
+    let bsModal;
+    let htmlModal;
     let formCotizacion = null;
 
-    let estados = [];
-    let municipios = [];
+    let errorParams = false;
     let customCantidad = null;
+    let cotizacionEnviada = false;
+    let cotizacionFallida = false;
+    let enviandoCotizacion = false;
     let disabledCustomCantidad = false;
 
     let medida = 18;
@@ -33,6 +37,8 @@
     $: cantidad !== -1 && (customCantidad = null);
 
     const handleSubmit = async () => {
+        enviandoCotizacion = true;
+
         const params = {
             cantidad,
             medida,
@@ -45,8 +51,7 @@
             codigoPostal,
         };
 
-
-        const errorParams = Object.values(params).some((value) => {
+        errorParams = Object.values(params).some((value) => {
             return [null, undefined, "", 0].includes(value);
         });
 
@@ -54,24 +59,36 @@
             setLocalStorageParams(params);
             const fd = obtenerFormDataCotizacion(params);
 
-            const response = await fetch(`${$apiHost}/cotizaciones`, {
-                method  : 'POST',
-                body    : fd
+            const response = await fetch(`${$apiHost}/cotizaciones/`, {
+                method: "POST",
+                body: fd,
             });
 
-            // response = await response.json();
+            const { error } = await response.json();
+
+            cotizacionFallida = error;
+            cotizacionEnviada = !error;
         }
+
+        setTimeout(() => {
+            cotizacionEnviada && bsModal.hide();
+
+            errorParams = false;
+            cotizacionEnviada = false;
+            cotizacionFallida = false;
+            enviandoCotizacion = false;
+        }, 3000);
     };
 
     const obtenerFormDataCotizacion = (params) => {
         const fd = new FormData(formCotizacion);
 
         Object.keys(params).forEach((key) => {
-            !fd.has(key) && fd.append(`${key}`, params[key])
+            !fd.has(key) && fd.append(`${key}`, params[key]);
         });
 
         return fd;
-    }
+    };
 
     const setLocalStorageParams = (params) => {
         Object.keys(params).forEach((key) => {
@@ -80,7 +97,7 @@
     };
 
     const handleModalCotizacion = () => {
-        const bsModal = new bootstrap.Modal(modal, {
+        bsModal = new bootstrap.Modal(htmlModal, {
             backdrop: "static",
             keyboard: false,
         });
@@ -105,21 +122,7 @@
 
 <Template>
     {#await brazalete}
-        <div class="container-fluid">
-            <div
-                class="row loading-box align-items-center justify-content-center"
-            >
-                <div class="col-auto">
-                    <h4 class="text-center">
-                        <i
-                            class="fas fa-spinner fa-pulse fa-4x text-primary mb-3"
-                        />
-
-                        <span class="d-block"> Cargando... </span>
-                    </h4>
-                </div>
-            </div>
-        </div>
+        <Loading />
     {:then brazalete}
         <div class="container my-5">
             <div class="row">
@@ -283,8 +286,8 @@
                 </div>
             </div>
 
-            <div class="modal" bind:this={modal}>
-                <div class="modal-dialog modal-lg">
+            <div class="modal" bind:this={htmlModal}>
+                <div class="modal-dialog modal-dialog-centered modal-lg">
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="m-0">Formulario de cotización</h5>
@@ -300,8 +303,9 @@
 
                         <div class="modal-body">
                             <form
-                                on:submit|preventDefault={handleSubmit}
                                 bind:this={formCotizacion}
+                                class:d-none={enviandoCotizacion}
+                                on:submit|preventDefault={handleSubmit}
                             >
                                 <div class="row">
                                     <div class="col-md-6">
@@ -312,6 +316,7 @@
                                             >
                                             <input
                                                 type="text"
+                                                required
                                                 name="nombre"
                                                 id="nombre"
                                                 class="form-control form-control-sm text-center"
@@ -326,6 +331,7 @@
                                             >
                                             <input
                                                 type="text"
+                                                required
                                                 name="email"
                                                 id="email"
                                                 class="form-control form-control-sm text-center"
@@ -373,6 +379,7 @@
                                             >
                                             <input
                                                 type="text"
+                                                required
                                                 name="direccion"
                                                 id="direccion"
                                                 class="form-control form-control-sm text-center"
@@ -387,6 +394,7 @@
                                             >
                                             <input
                                                 type="text"
+                                                required
                                                 name="telefono"
                                                 id="telefono"
                                                 class="form-control form-control-sm text-center"
@@ -401,17 +409,12 @@
                                             >
                                             <input
                                                 type="text"
+                                                required
                                                 name="estado"
                                                 id="estado"
                                                 class="form-control form-control-sm text-center"
                                                 bind:value={estado}
                                             />
-                                            <!-- <select name="estado" class="form-select  form-select-sm" bind:value="{estado}">
-                                            <option value="-1">Seleccionar estado</option>
-                                            {#each estados as estado (estado.clave)}
-                                                <option value="{estado.nombre}">{estado.nombre}</option>
-                                            {/each}
-                                        </select>                                         -->
                                         </div>
 
                                         <div class="mb-3">
@@ -421,17 +424,12 @@
                                             >
                                             <input
                                                 type="text"
+                                                required
                                                 name="ciudad"
                                                 id="ciudad"
                                                 class="form-control form-control-sm text-center"
                                                 bind:value={ciudad}
                                             />
-                                            <!-- <select name="municipio" class="form-select form-select-sm" bind:value={municipio}>
-                                            <option value="-1"> Seleccionar municipio </option>
-                                            {#each municipios as municipio (municipio.clave)}
-                                                <option value="{municipio.nombre}">{municipio.nombre}</option>
-                                            {/each}
-                                        </select> -->
                                         </div>
 
                                         <div class="mb-3">
@@ -440,6 +438,7 @@
                                             >
                                             <input
                                                 type="text"
+                                                required
                                                 name="codigoPostal"
                                                 id="codigoPostal"
                                                 class="form-control form-control-sm text-center"
@@ -456,6 +455,34 @@
                                     >
                                 </div>
                             </form>
+
+                            <div class:d-none={!enviandoCotizacion}>
+                                {#if cotizacionEnviada}
+                                    <Loading
+                                        modalBox
+                                        icon="fas fa-check-circle fa-4x text-success"
+                                        message="Su cotización ha sido enviada. En breve nos pondremos en contacto con usted."
+                                    />
+                                {:else if cotizacionFallida}
+                                    <Loading
+                                        modalBox
+                                        icon="far fa-times-circle fa-4x text-danger"
+                                        message="Ha ocurrido un error al realizar el envio de su cotizacion. Favor de intentarlo más tarde."
+                                    />
+                                {:else if errorParams}
+                                    <Loading
+                                        modalBox
+                                        icon="far fa-times-circle fa-4x text-danger"
+                                        message="Verificar que haya completado todos los campos obligatorios (*)."
+                                    />
+                                {:else}
+                                    <Loading
+                                        modalBox
+                                        icon="fas fa-spinner fa-spin fa-4x text-secondary"
+                                        message="Enviando su solicitud de cotización..."
+                                    />
+                                {/if}
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -473,10 +500,5 @@
 
     input[type="number"] {
         -moz-appearance: textfield;
-    }
-
-    .loading-box {
-        min-height: 480px;
-        opacity: 0.3;
     }
 </style>
