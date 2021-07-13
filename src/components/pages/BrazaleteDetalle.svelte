@@ -23,6 +23,7 @@
     let medida = 18;
     let cantidad = 100;
     let imagenImpresion = null;
+    let informacionAdicional = null;
     let nombre = localStorage.getItem("nombre") ?? "";
     let email = localStorage.getItem("email") ?? "";
     let direccion = localStorage.getItem("direccion") ?? "";
@@ -30,44 +31,47 @@
     let estado = localStorage.getItem("estado") ?? "";
     let ciudad = localStorage.getItem("ciudad") ?? "";
     let codigoPostal = localStorage.getItem("codigoPostal") ?? "";
-    let informacionAdicional =
-        localStorage.getItem("informacionAdicional") ?? "";
 
     $: disabledCustomCantidad = cantidad === -1 ? false : true;
     $: cantidad !== -1 && (customCantidad = null);
 
     const handleSubmit = async () => {
-        enviandoCotizacion = true;
+        try {
+            enviandoCotizacion = true;
 
-        const params = {
-            cantidad: +cantidad === -1 ? customCantidad : cantidad,
-            medida,
-            nombre,
-            email,
-            direccion,
-            telefono,
-            estado,
-            ciudad,
-            codigoPostal,
-        };
+            const params = {
+                cantidad: +cantidad === -1 ? customCantidad : cantidad,
+                medida,
+                nombre,
+                email,
+                direccion,
+                telefono,
+                estado,
+                ciudad,
+                codigoPostal,
+            };
 
-        errorParams = Object.values(params).some((value) => {
-            return [null, undefined, "", 0].includes(value);
-        });
-
-        if (!errorParams) {
-            setLocalStorageParams(params);
-            const fd = obtenerFormDataCotizacion(params);
-
-            const response = await fetch(`${$apiHost}/cotizaciones/`, {
-                method: "POST",
-                body: fd,
+            errorParams = Object.values(params).some((value) => {
+                [null, undefined, "", 0].includes(value) && console.log(value);
+                return [null, undefined, "", 0].includes(value);
             });
 
-            const { error } = await response.json();
+            if (!errorParams) {
+                setLocalStorageParams(params);
+                const fd = obtenerFormDataCotizacion(params);
 
-            cotizacionFallida = error;
-            cotizacionEnviada = !error;
+                const response = await fetch(`${$apiHost}/cotizaciones/`, {
+                    method: "POST",
+                    body: fd,
+                });
+
+                const { error } = await response.json();
+
+                cotizacionFallida = error;
+                cotizacionEnviada = !error;
+            }
+        } catch (error) {
+            console.log(error);
         }
 
         setTimeout(() => {
@@ -473,7 +477,7 @@
                                     <Loading
                                         modalBox
                                         icon="far fa-times-circle fa-4x text-danger"
-                                        message="Verificar que haya completado todos los campos obligatorios (*)."
+                                        message="Verificar los campos obligatorios (*)"
                                     />
                                 {:else}
                                     <Loading
