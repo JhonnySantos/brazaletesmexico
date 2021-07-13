@@ -40,7 +40,7 @@
         enviandoCotizacion = true;
 
         const params = {
-            cantidad,
+            cantidad: +cantidad === -1 ? customCantidad : cantidad,
             medida,
             nombre,
             email,
