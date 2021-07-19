@@ -1,35 +1,37 @@
 <script>
   import { navigate } from "svelte-routing";
+  import { apiHost } from "../../stores/stores";
   import ListBusqueda from "./ListBusqueda.svelte";
 
   let inputSearch = "";
   let showListResults = false;
-  export let ResultadosBusqueda = [];
+  export let resultadosBusqueda = [];
 
   const handleKeyupSearch = async () => {
-    
     if (inputSearch.length > 3) {
-      ResultadosBusqueda = await obtenerBusqueda();
+      resultadosBusqueda = await obtenerBusqueda();
       showListResults = true;
-    }
-    else {
+    } else {
       showListResults = false;
-      ResultadosBusqueda = [];
+      resultadosBusqueda = [];
     }
   };
 
   const obtenerBusqueda = async () => {
-    // let response = await fetch(`${$apiHost}/search/all/${inputSearch}`);
+    let response = await fetch(`${$apiHost}/search/${inputSearch}`);
 
-    // if (response.ok) {
-    //     return await response.json();
-    // } else {
-    //     throw new Error("Se ha producido un error interno.");
-    // }
+    if (response.ok) {
+      return await response.json();
+    } else {
+      console.warn( `Error: ${response.statusText}` );
+      return [];
+    }
   };
 
   const navigateToResultadosBusqueda = () => {
     navigate(`/search/${inputSearch}`, { replace: false });
+    showListResults = false;
+    inputSearch = "";
   };
 </script>
 
@@ -51,7 +53,7 @@
 
   {#if showListResults}
     <div class="position-absolute top-100 start-0 w-100 shadow bring-to-front">
-      <ListBusqueda {ResultadosBusqueda} />
+      <ListBusqueda {resultadosBusqueda} />
     </div>
   {/if}
 </div>

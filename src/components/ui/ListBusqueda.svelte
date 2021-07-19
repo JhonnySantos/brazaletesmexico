@@ -1,18 +1,17 @@
 <script>
   import { Link } from "svelte-routing";
-
-  export let ResultadosBusqueda = [];
+  export let resultadosBusqueda = [];
 </script>
 
-<div class="list-group">
-  {#if ResultadosBusqueda.length <= 0}
+<div class="list-group list-group-flush">
+  {#if resultadosBusqueda.length <= 0}
     <button class="list-group-item list-group-item-action link-resultado-buscador disabled" tabindex="-1" aria-disabled="true">
       <h6 class="mb-0 py-2">
         No se encontraron resultados
       </h6>
     </button>
-  {:else if ResultadosBusqueda.length > 6}
-    {#each ResultadosBusqueda as resultado (resultado.id)}
+  {:else if resultadosBusqueda.length > 5}
+    {#each resultadosBusqueda as resultado (resultado.id)}
       {#if resultado.type == "brazalete"}
         <Link class="list-group-item list-group-item-action link-resultado-buscador" to={resultado.slug}>
           {#if resultado.image}
@@ -37,19 +36,17 @@
         </Link>
       {:else}
         <Link class="list-group-item list-group-item-action link-resultado-buscador" to={resultado.slug}>
-          <h6 class="mb-0 py-2">
-            Nosotros
-          </h6>
+          <h6 class="mb-0 py-2">{resultado.title}</h6>
         </Link>
       {/if}
     {/each}
     <Link class="list-group-item list-group-item-action link-resultado-buscador" to={ `/search/cancun` }>
       <h6 class="mb-0 py-2">
-        Ver más resultados ({ ResultadosBusqueda.length }) <i class="fas fa-angle-double-right"></i>
+        Ver más resultados ({ resultadosBusqueda.length }) <i class="fas fa-angle-double-right"></i>
       </h6>
     </Link>
   {:else}
-    {#each ResultadosBusqueda as resultado (resultado.id)}
+    {#each resultadosBusqueda as resultado (resultado.id)}
       {#if resultado.type == "brazalete"}
         <Link class="list-group-item list-group-item-action link-resultado-buscador" to={resultado.slug}>
           {#if resultado.image}
@@ -74,9 +71,7 @@
         </Link>
       {:else}
         <Link class="list-group-item list-group-item-action link-resultado-buscador" to={resultado.slug}>
-          <h6 class="mb-0 py-2">
-            Nosotros
-          </h6>
+          <h6 class="mb-0 py-2">{resultado.title}</h6>
         </Link>
       {/if}
     {/each}
