@@ -35,7 +35,7 @@
   };
 </script>
 
-<div class="position-relative">
+<form class="position-relative" on:submit|preventDefault={resultadosBusqueda}>
   <div class="input-group input-group-sm">
     <input
       type="text"
@@ -46,7 +46,7 @@
       bind:value={inputSearch}
       on:keyup={ handleKeyupSearch }
     />
-    <button class="btn btn-secondary" type="button" id="button-addon-search" on:click={ inputSearch.length > 3 && navigateToResultadosBusqueda }>
+    <button class="btn btn-secondary" type="submit" id="button-addon-search" on:click={ inputSearch.length > 3 && navigateToResultadosBusqueda }>
       Buscar
     </button>
   </div>
@@ -56,7 +56,7 @@
       <ListBusqueda {resultadosBusqueda} />
     </div>
   {/if}
-</div>
+</form>
 
 <style>
   .bring-to-front {
