@@ -4,8 +4,9 @@
   import Section from "../ui/Section.svelte";
   import Loading from "../ui/Loading.svelte";
 
+  let params;
   let searchText = "cancún";
-  let searchResults = [
+  let ResultadosBusqueda = [
     {
       id: 1,
       image: "",
@@ -88,7 +89,7 @@
 
     {#if true}
       <div class="row row-cols-1 g-5 mx-5 mb-5">
-        {#each searchResults as result (result.id)}
+        {#each ResultadosBusqueda as result (result.id)}
           <div class="col">
             <div class="d-flex align-items-center">
               <div class="flex-shrink-0">
