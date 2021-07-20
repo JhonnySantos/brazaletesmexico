@@ -7,14 +7,14 @@
         <div class="carousel-inner">
             <div class="carousel-item active" data-bs-interval="10000">
                 <img
-                    src="https://www.brazaletesmexico.com/wp-content/uploads/brazaletes-en-mexico-de-seguridad-tyvek2.jpg"
+                    src="./images/carousel-bg-1.jpg"
                     class="card-img" 
-                    alt=""
+                    alt="brazaletes-en-mexico-de-seguridad-tyvek2"
                 />
                 <div class="card-img-overlay container">
                     <div class="row h-100 align-items-center">
                         <div class="col-12 col-md-6 text-end fade-left">
-                            <img src="https://www.brazaletesmexico.com/wp-content/uploads/brazaletes-mexico-tyvek.png" class="img-fluid" alt="">
+                            <img src="./images/carousel-image-1.png" class="img-fluid" alt="brazaletes-mexico-tyvek">
                         </div>
                         <div class="col-12 col-md-6 text-center text-md-start">
                             <h1 class="display-3 text-primary fw-bold fade-right fade-right-1">Brazaletes <br> Full Color</h1>
@@ -26,9 +26,9 @@
             </div>
             <div class="carousel-item" data-bs-interval="10000">
                 <img
-                    src="https://www.brazaletesmexico.com/wp-content/uploads/banner-tienda-en-linea.jpg"
+                    src="./images/carousel-bg-2.jpg"
                     class="card-img"
-                    alt=""
+                    alt="cotizaciones-en-linea"
                 />
                 <div class="card-img-overlay container-lg px-3 px-md-5">
                     <div class="row h-100 align-items-center">
@@ -38,16 +38,16 @@
                             <button class="btn btn-secondary shadow mt-3 fade-left">Comprar</button>
                         </div>
                         <div class="col-12 col-md-6 ps-md-5 ps-lg-3 fade-right">
-                            <img src="https://www.brazaletesmexico.com/wp-content/uploads/OBJETO-TIENDA-ONLINE.png" class="img-fluid" alt="">
+                            <img src="./images/carousel-image-2.png" class="img-fluid" alt="cotizaciones-online">
                         </div>
                     </div>
                 </div>
             </div>
             <div class="carousel-item" data-bs-interval="10000">
                 <img
-                    src="https://www.brazaletesmexico.com/wp-content/uploads/brazaletes-rfdi-en-mexico-seguridad.jpg"
+                    src="./images/carousel-bg-3.jpg"
                     class="card-img"
-                    alt=""
+                    alt="brazaletes-rfdi-en-mexico-seguridad"
                 />
                 <div class="card-img-overlay container px-3 px-md-7">
                     <div class="row h-100 align-items-center">
