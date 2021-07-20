@@ -1,6 +1,5 @@
 <script>
   import { navigate } from "svelte-routing";
-import { prevent_default } from "svelte/internal";
   import { apiHost } from "../../stores/stores";
   import ListBusqueda from "./ListBusqueda.svelte";
 
