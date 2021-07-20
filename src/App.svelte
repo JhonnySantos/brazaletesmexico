@@ -17,6 +17,7 @@
 	import BrazaleteDetalle from "./components/pages/BrazaleteDetalle.svelte";
 	import NotFoundPage from './components/pages/NotFoundPage.svelte';
 	import ResultadosBusqueda from './components/pages/ResultadosBusqueda.svelte';
+	import Ocasiones from './components/pages/Ocasiones.svelte';
 </script>
 
 <Router>
@@ -45,6 +46,8 @@
 
 		<Route path="/tienda" component={Tienda} />
 		<Route path="/tienda/:slug" component={BrazaleteDetalle} let:params />
+
+		<Route path="/ocasiones/:slug" component={Ocasiones} let:params />
 
 		<Route path="/search/:search" component={ResultadosBusqueda} let:params />
 
