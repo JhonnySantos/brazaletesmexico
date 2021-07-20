@@ -9,7 +9,7 @@ import Buscador from './Buscador.svelte';
     <div class="container d-flex flex-wrap align-items-center justify-content-center justify-content-sm-center justify-content-md-between justify-content-lg-between">
         <Link class="d-flex align-items-center me-lg-auto my-2" to='/'>
             <img 
-                src="https://www.brazaletesmexico.com/wp-content/uploads/logo-brazaletes-mexico.png" 
+                src="./images/logo.png" 
                 width="150" 
                 alt="Logo brazaletes mx" />
         </Link>
