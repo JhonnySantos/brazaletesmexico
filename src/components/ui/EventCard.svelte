@@ -4,9 +4,9 @@
 </script>
 
 <div class="col">
-    <div class="card justify-content-end event-card border-info" style="background-image: url({evento.img});">
+    <div class="card justify-content-end event-card border-info" style="background-image: url(./images/{evento.img});">
         <a href={evento.route} class='btn btn-secondary mx-auto' use:link>
-            {evento.descripcion}
+            {evento.titulo}
         </a>
     </div>
 </div>
