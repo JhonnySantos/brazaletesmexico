@@ -3,8 +3,8 @@
   import { apiHost } from "../../stores/stores";
   import ListBusqueda from "./ListBusqueda.svelte";
 
-  let inputSearch = "";
   let showListResults = false;
+  export let inputSearch = "";
   export let resultadosBusqueda = [];
 
   const handleKeyupSearch = async ( event ) => {
@@ -27,7 +27,7 @@
   }
 
   const obtenerBusqueda = async () => {
-    let response = await fetch(`${$apiHost}/search/${inputSearch}`);
+    let response = await fetch(`${$apiHost}/busqueda/${inputSearch}`);
 
     if (response.ok) {
       return await response.json();
@@ -63,7 +63,7 @@
 
   {#if showListResults}
     <div class="position-absolute top-100 start-0 w-100 shadow bring-to-front">
-      <ListBusqueda {resultadosBusqueda} />
+      <ListBusqueda {resultadosBusqueda} {inputSearch} />
     </div>
   {/if}
 </form>
