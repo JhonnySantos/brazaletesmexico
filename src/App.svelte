@@ -61,10 +61,11 @@
 		/* min-height: 320px; */
 		/* max-height: 320px; */
         cursor: pointer;
+		border: 0 !important;
     }
 
 	:global(.card-tipo-brazalete:hover) {
-		opacity: 0.7;
+		/* opacity: 0.7; */
 		box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
     }
 
