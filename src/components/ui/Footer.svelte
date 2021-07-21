@@ -33,7 +33,7 @@
                 </div>
             </div>
 
-            <div class="col-12 col-sm-12 col-md-6 col-lg-3 mb-3">
+            <div class="col-12 col-sm-12 col-md-6 col-lg-3 mb-0">
                 <p><strong class="fw-bold">SÍGUENOS</strong></p>
                 <ul class="list-unstyled">
                     <li class="mb-2 small">
@@ -95,20 +95,15 @@
             </div>
 
             <div class="col-12 col-sm-12 col-md-12 col-lg-2 mb-3">
-                <p><strong class="fw-bold">PAGUE CON</strong></p>
-                <div class="row row-cols-auto row-cols-sm-auto row-cols-md-auto row-cols-lg-1 align-items-center g-3">
-                    <div class="col">
-                        <img 
-                            src="https://www.brazaletesmexico.com/wp-content/uploads/pago-de-brazaletes-con-visa-mastercard.png"
-                            width="120" 
-                            alt="Logo brazaletes mx" 
-                        />
+                <div class="row align-items-center">
+                    <div class="col-auto col-sm-auto col-md-auto col-lg-12">
+                        <p class="m-0"><strong class="fw-bold">PAGUE CON</strong></p>
                     </div>
                     <div class="col">
                         <img 
-                            src="https://www.brazaletesmexico.com/wp-content/uploads/sectigo_trust_seal_md_106x42.png"
-                            width="90" 
-                            alt="Logo brazaletes mx" 
+                            src="../../images/payment-visa-mastercard-white.png" 
+                            width="120" 
+                            alt="" 
                         />
                     </div>
                 </div>

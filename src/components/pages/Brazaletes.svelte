@@ -23,6 +23,7 @@
   }
 
   onMount(async () => {
+    window.scrollTo(0, 0);
     if (tipo !== null) {
       let response = await fetch(`${$apiHost}/brazaletes/all/${tipo}`)
       brazaletes = await response.json()
