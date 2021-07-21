@@ -21,7 +21,7 @@
   };
 
   const handleKeypressSearch = ( event ) => {
-    if ( !( event.keyCode == 192 || (event.keyCode >= 65 && event.keyCode <= 90) || (event.keyCode >= 37 && event.keyCode <= 40) || event.keyCode == 8 || event.keyCode == 13 || event.keyCode == 16 || event.keyCode == 46 ) ) {
+    if ( !( event.keyCode == 192 || (event.keyCode >= 65 && event.keyCode <= 90) || event.keyCode == 32 || (event.keyCode >= 35 && event.keyCode <= 40) || event.keyCode == 8 || event.keyCode == 13 || event.keyCode == 16 || event.keyCode == 46 ) ) {
       event.preventDefault();
     }
   }
