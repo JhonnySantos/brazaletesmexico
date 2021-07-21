@@ -9,7 +9,7 @@
   let resultadosBusqueda = [];
 
   const obtenerBusqueda = async () => {
-    let response = await fetch(`${$apiHost}/search/${search}`);
+    let response = await fetch(`${$apiHost}/busqueda/${search}`);
 
     if (response.ok) {
         return await response.json();
@@ -41,36 +41,36 @@
       {#if resultadosBusqueda.length > 0}
 
         <ul class="list-group list-group-flush">
-          {#each resultadosBusqueda as resultado (resultado.id)}
+          {#each resultadosBusqueda as {tipo, img, slug, titulo, descripcion}, i}
 
-            {#if resultado.type == "brazalete"}
+            {#if tipo == "brazalete"}
 
-              <Link class="list-group-item list-group-item-action link-resultado-buscador py-4" to={resultado.slug}>
+              <Link class="list-group-item list-group-item-action link-resultado-buscador py-4" to={slug}>
 
-                {#if resultado.image}
+                {#if img}
                     <div class="d-flex">
                       <div class="flex-shrink-0">
                         <img
-                          src={resultado.image}
-                          alt={resultado.image}
-                          class="border bg-dark img-thumbnail thumbnail-responsive"
+                          src={img}
+                          alt={img}
+                          class="border thumbnail-responsive"
                         />
                       </div>
                       <div class="flex-grow-1 ms-3">
                         <div class="d-flex w-100 justify-content-between">
-                          <h5 class="mb-3">{resultado.title}</h5>
+                          <h5 class="mb-3">{titulo}</h5>
                           <i class="fas fa-angle-double-right fa-lg ms-3"></i>
                         </div>
-                        <p>{  resultado.description.length <= 150 ? resultado.description : resultado.description.substring(0, 150) + "..." }</p>
+                        <p>{  descripcion.length <= 150 ? descripcion : descripcion.substring(0, 150) + "..." }</p>
                       </div>
                     </div>
                 {:else}
 
                     <div class="d-flex w-100 justify-content-between">
-                      <h5 class="mb-3">{resultado.title}</h5>
+                      <h5 class="mb-3">{titulo}</h5>
                       <i class="fas fa-angle-double-right fa-lg ms-3"></i>
                     </div>
-                    <p>{  resultado.description.length <= 150 ? resultado.description : resultado.description.substring(0, 150) + "..." }</p>
+                    <p>{  descripcion.length <= 150 ? descripcion : descripcion.substring(0, 150) + "..." }</p>
 
                 {/if}
 
@@ -78,9 +78,9 @@
 
             {:else}
 
-              <Link class="list-group-item list-group-item-action link-resultado-buscador py-4" to={resultado.slug}>
+              <Link class="list-group-item list-group-item-action link-resultado-buscador py-4" to={slug}>
                 <div class="d-flex w-100 justify-content-between">
-                  <h5 class="mb-3">{resultado.title}</h5>
+                  <h5 class="mb-3">{titulo}</h5>
                   <i class="fas fa-angle-double-right fa-lg ms-3"></i>
                 </div>
               </Link>
@@ -129,8 +129,8 @@
     min-height: calc(100vh - 400px) !important;
   }
   .thumbnail-responsive {
-    min-width: 100px !important; 
-    min-height: 100px !important;
+    min-width: 125px !important; 
+    max-width: 125px !important; 
   }
 
 </style>

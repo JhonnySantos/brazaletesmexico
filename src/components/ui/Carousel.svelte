@@ -1,3 +1,7 @@
+<script>
+    import {link} from 'svelte-routing';
+</script>
+
 <div>
     <div
         id="carouselExampleControls"
@@ -7,47 +11,51 @@
         <div class="carousel-inner">
             <div class="carousel-item active" data-bs-interval="10000">
                 <img
-                    src="https://www.brazaletesmexico.com/wp-content/uploads/brazaletes-en-mexico-de-seguridad-tyvek2.jpg"
+                    src="./images/carousel-bg-1.jpg"
                     class="card-img" 
-                    alt=""
+                    alt="brazaletes-en-mexico-de-seguridad-tyvek2"
                 />
                 <div class="card-img-overlay container">
                     <div class="row h-100 align-items-center">
                         <div class="col-12 col-md-6 text-end fade-left">
-                            <img src="https://www.brazaletesmexico.com/wp-content/uploads/brazaletes-mexico-tyvek.png" class="img-fluid" alt="">
+                            <img src="./images/carousel-image-1.png" class="img-fluid" alt="brazaletes-mexico-tyvek">
                         </div>
                         <div class="col-12 col-md-6 text-center text-md-start">
                             <h1 class="display-3 text-primary fw-bold fade-right fade-right-1">Brazaletes <br> Full Color</h1>
                             <h5 class="fw-bold fade-right">Promociona tu evento mientras lo controlas...</h5>
-                            <button class="btn btn-secondary shadow mt-3 fade-right">Ver más</button>
+                            <a href="/brazaletes/tyvek" class="btn btn-secondary shadow mt-3 fade-right" use:link>
+                                Ver más
+                            </a>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="carousel-item" data-bs-interval="10000">
                 <img
-                    src="https://www.brazaletesmexico.com/wp-content/uploads/banner-tienda-en-linea.jpg"
+                    src="./images/carousel-bg-2.jpg"
                     class="card-img"
-                    alt=""
+                    alt="cotizaciones-en-linea"
                 />
                 <div class="card-img-overlay container-lg px-3 px-md-5">
                     <div class="row h-100 align-items-center">
                         <div class="col-12 col-md-6 pe-lg-5 text-center text-md-start">
                             <h1 class="display-4 text-primary fw-bold fade-left fade-left-1">Diseños preestablecidos</h1>
                             <h5 class="fw-bold fade-left">Rápidos tiempos de entrega</h5>
-                            <button class="btn btn-secondary shadow mt-3 fade-left">Comprar</button>
+                            <a href="/tienda" class="btn btn-secondary shadow mt-3 fade-left" use:link>
+                                Comprar
+                            </a>
                         </div>
                         <div class="col-12 col-md-6 ps-md-5 ps-lg-3 fade-right">
-                            <img src="https://www.brazaletesmexico.com/wp-content/uploads/OBJETO-TIENDA-ONLINE.png" class="img-fluid" alt="">
+                            <img src="./images/carousel-image-2.png" class="img-fluid" alt="cotizaciones-online">
                         </div>
                     </div>
                 </div>
             </div>
             <div class="carousel-item" data-bs-interval="10000">
                 <img
-                    src="https://www.brazaletesmexico.com/wp-content/uploads/brazaletes-rfdi-en-mexico-seguridad.jpg"
+                    src="./images/carousel-bg-3.jpg"
                     class="card-img"
-                    alt=""
+                    alt="brazaletes-rfdi-en-mexico-seguridad"
                 />
                 <div class="card-img-overlay container px-3 px-md-7">
                     <div class="row h-100 align-items-center">
@@ -60,7 +68,9 @@
                                 <li>Identificación de cliente</li>
                             </ul>
                             <div class="text-center mb-3">
-                                <button class="btn btn-secondary shadow">Ver más</button>
+                                <a href="/rfid" class="btn btn-secondary shadow mt-3 fade-left" use:link>
+                                    Ver más
+                                </a>
                             </div>
                         </div>
                     </div>

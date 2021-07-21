@@ -1,7 +1,7 @@
 <script>
     import Menu from './Menu.svelte';
     import {Link} from 'svelte-routing';
-import Buscador from './Buscador.svelte';
+    import Buscador from './Buscador.svelte';
 </script>
 
 <header>
@@ -9,7 +9,7 @@ import Buscador from './Buscador.svelte';
     <div class="container d-flex flex-wrap align-items-center justify-content-center justify-content-sm-center justify-content-md-between justify-content-lg-between">
         <Link class="d-flex align-items-center me-lg-auto my-2" to='/'>
             <img 
-                src="https://www.brazaletesmexico.com/wp-content/uploads/logo-brazaletes-mexico.png" 
+                src="../../images/logo.png" 
                 width="150" 
                 alt="Logo brazaletes mx" />
         </Link>
@@ -41,10 +41,6 @@ import Buscador from './Buscador.svelte';
 
                 <a href="https://www.facebook.com/brazaletesmex/" class="link-light text-decoration-none">
                     <i class="fab fa-instagram-square fa-lg"></i>
-                </a>
-                
-                <a href="https://twitter.com/BrazaletesMex" class="link-light text-decoration-none">
-                    <i class="fab fa-twitter-square fa-lg"></i>
                 </a>
                 
                 <a href="https://mx.linkedin.com/company/brazaletes-mexico" class="link-light text-decoration-none">

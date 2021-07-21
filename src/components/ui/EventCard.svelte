@@ -1,13 +1,12 @@
 <script>
-    import { link } from 'svelte-routing';
-    export let evento = null;
+  import { link } from 'svelte-routing';
+  export let evento = null;
 </script>
 
 <div class="col">
-    <div class="card justify-content-end event-card border-info" style="background-image: url({evento.img});">
-        <!-- <h3 class="card-header bg-dark text-center text-white">{evento.descripcion}</h3> -->
-        <a href="/" class='btn btn-secondary mx-auto' use:link>
-            {evento.descripcion}
+    <div class="card justify-content-end event-card border-info" style="background-image: url(./images/{evento.img});">
+        <a href={evento.route} class='btn btn-secondary mx-auto' use:link>
+            {evento.titulo}
         </a>
     </div>
 </div>

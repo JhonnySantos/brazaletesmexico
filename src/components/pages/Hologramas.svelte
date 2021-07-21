@@ -15,6 +15,11 @@
 
     let tipos = [];
     let brazaletes = [];
+    let tipoBrazalete = {
+        descripcion : "Brazaletes Holográficos",
+        img : "https://www.brazaletesmexico.com/wp-content/uploads/brazaletes-mexico-tyvek.png",
+        descripcion_larga : "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Suscipit veniam ad itaque, quia quidem similique ratione, odio numquam eum provident facilis qui quis natus perspiciatis deserunt. Deserunt sequi iusto temporibus!"
+    };
 
     onMount(async () => {
         if (tipo !== null) {
@@ -28,15 +33,11 @@
 </script>
 
 <svelte:head>
-    <title> Brazaletes México | Brazaletes Holográficos </title>
+    <title> Brazaletes México | {tipoBrazalete.descripcion} </title>
 </svelte:head>
 
 <Template>
-    <h1 class='text-center my-5'>Brazaletes Holográficos</h1>
-
-    <div class="container mb-5">
-        <Jumbotron />
-    </div>
+    <h1 class='text-center my-5'>{tipoBrazalete.descripcion}</h1>
 
     <div class="container my-5">
             {#if tipo !== null}
