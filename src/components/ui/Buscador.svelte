@@ -63,7 +63,7 @@
 
   {#if showListResults}
     <div class="position-absolute top-100 start-0 w-100 shadow bring-to-front">
-      <ListBusqueda {resultadosBusqueda} {inputSearch} />
+      <ListBusqueda {resultadosBusqueda} on:showMore={navigateToResultadosBusqueda} />
     </div>
   {/if}
 </form>

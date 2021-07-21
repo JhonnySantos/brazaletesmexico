@@ -1,7 +1,14 @@
 <script>
+  import { createEventDispatcher } from "svelte";
   import { Link } from "svelte-routing";
+
   export let resultadosBusqueda = [];
-  export let inputSearch = "";
+  const dispatch = createEventDispatcher();
+
+  const mostrarMas = () => {
+    dispatch("showMore");
+  }
+
 </script>
 
 <div class="list-group list-group-flush">
@@ -74,11 +81,12 @@
         </Link>
       {/if}
     {/each}
-    <Link class="list-group-item list-group-item-action link-resultado-buscador" to={ `/search/${inputSearch}` }>
+
+    <button type="button" class="list-group-item list-group-item-action link-resultado-buscador" on:click={ mostrarMas }>
       <h6 class="mb-0 py-2">
         Ver más resultados ({ resultadosBusqueda.length }) <i class="fas fa-angle-double-right"></i>
       </h6>
-    </Link>
+    </button>
 
   {/if}
 </div>
