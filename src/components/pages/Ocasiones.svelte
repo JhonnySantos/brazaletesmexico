@@ -16,7 +16,7 @@
     tipos = await response.json();
 
     response = await fetch(`${$apiHost}/eventos/one/${slug}`);
-    ocasion = await response.json();
+    return await response.json();
 
   };
 

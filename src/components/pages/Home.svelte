@@ -1,6 +1,6 @@
 <script>
     import { onMount } from 'svelte'
-    import { currentSection, apiHost } from "../../stores/stores";
+    import { currentSection, apiHost, currentIdTipo } from "../../stores/stores";
 
     import Template from '../ui/Template.svelte';
     
@@ -15,6 +15,7 @@
     export let location = "";
 
     $currentSection = 0;
+    
 
     const benefits = [
         {
@@ -37,6 +38,11 @@
         },
     ];
 
+    const updateIdTipo = (event) => {
+        $currentIdTipo = event.detail
+        localStorage.setItem('currentIdTipo', event.detail)
+    }
+
     onMount(async () => {
         let response = await fetch(`${$apiHost}/eventos/all/`);
         eventos = await response.json();
@@ -57,7 +63,7 @@
         <Section name='BRAZALETES POR COTIZACIÓN' />
 
         <div class="container my-4">
-            <GridTiposBrazaletes {tipos} />
+            <GridTiposBrazaletes on:updateIdTipo={updateIdTipo} {tipos} />
         </div>
 
         <Section name='BRAZALETES PARA CADA OCASIÓN' />
