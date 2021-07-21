@@ -20,7 +20,7 @@
         </li>
 
         {#each secciones as seccion (seccion.id)}
-            <li class="nav-item">
+            <li class="nav-item me-2">
                 <Link class="nav-link {seccion.descripcion === "ECOFRIENDLY" ? "link-ecofriendly" : ""} {$currentSection == seccion.id ? 'active' : ''}" to="/{seccion.slug}">
                     {seccion.descripcion}
                 </Link>
