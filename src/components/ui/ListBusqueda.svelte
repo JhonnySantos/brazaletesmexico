@@ -15,62 +15,62 @@
 
   {:else if resultadosBusqueda.length > 0 && resultadosBusqueda.length <= 5}
 
-    {#each resultadosBusqueda.slice(0,5) as resultado (resultado.tipo + resultado.id)}
-      {#if resultado.tipo == "brazalete"}
-        <Link class="list-group-item list-group-item-action link-resultado-buscador" to={resultado.slug}>
-          {#if resultado.img}
+    {#each resultadosBusqueda.slice(0,5) as {tipo, img, slug, titulo, descripcion}, i}
+      {#if tipo == "brazalete"}
+        <Link class="list-group-item list-group-item-action link-resultado-buscador" to={slug}>
+          {#if img}
               <div class="d-flex align-items-center">
                 <div class="flex-shrink-0">
                   <img
-                    src={resultado.img}
-                    alt={resultado.img}
+                    src={img}
+                    alt={img}
                     class="bg-dark rounded img-resultado-buscador"
                   />
                 </div>
                 <div class="flex-grow-1 ms-3">
-                  <h6 class="mb-0">{resultado.titulo}</h6>
-                  <small class="text-muted">{  resultado.descripcion.length <= 50 ? resultado.descripcion : resultado.descripcion.substring(0, 50) + "..." }</small>
+                  <h6 class="mb-0">{titulo}</h6>
+                  <small class="text-muted">{  descripcion.length <= 50 ? descripcion : descripcion.substring(0, 50) + "..." }</small>
                 </div>
               </div>
           {:else}
-              <h6 class="mb-0">{resultado.titulo}</h6>
-              <small class="text-muted">{  resultado.descripcion.length <= 50 ? resultado.descripcion : resultado.descripcion.substring(0, 50) + "..." }</small>
+              <h6 class="mb-0">{titulo}</h6>
+              <small class="text-muted">{  descripcion.length <= 50 ? descripcion : descripcion.substring(0, 50) + "..." }</small>
           {/if}
         </Link>
       {:else}
-        <Link class="list-group-item list-group-item-action link-resultado-buscador" to={resultado.slug}>
-          <h6 class="mb-0 py-2">{resultado.titulo}</h6>
+        <Link class="list-group-item list-group-item-action link-resultado-buscador" to={slug}>
+          <h6 class="mb-0 py-2">{titulo}</h6>
         </Link>
       {/if}
     {/each}
 
   {:else}
  
-    {#each resultadosBusqueda.slice(0,5) as resultado (resultado.tipo + resultado.id)}
-      {#if resultado.tipo == "brazalete"}
-        <Link class="list-group-item list-group-item-action link-resultado-buscador" to={resultado.slug}>
-          {#if resultado.img}
+    {#each resultadosBusqueda.slice(0,5) as {tipo, img, slug, titulo, descripcion}, i}
+      {#if tipo == "brazalete"}
+        <Link class="list-group-item list-group-item-action link-resultado-buscador" to={slug}>
+          {#if img}
               <div class="d-flex align-items-center">
                 <div class="flex-shrink-0">
                   <img
-                    src={resultado.img}
-                    alt={resultado.img}
+                    src={img}
+                    alt={img}
                     class="bg-dark rounded img-resultado-buscador"
                   />
                 </div>
                 <div class="flex-grow-1 ms-3">
-                  <h6 class="mb-0">{resultado.titulo}</h6>
-                  <small class="text-muted">{  resultado.descripcion.length <= 50 ? resultado.descripcion : resultado.descripcion.substring(0, 50) + "..." }</small>
+                  <h6 class="mb-0">{titulo}</h6>
+                  <small class="text-muted">{  descripcion.length <= 50 ? descripcion : descripcion.substring(0, 50) + "..." }</small>
                 </div>
               </div>
           {:else}
-              <h6 class="mb-0">{resultado.titulo}</h6>
-              <small class="text-muted">{  resultado.descripcion.length <= 50 ? resultado.descripcion : resultado.descripcion.substring(0, 50) + "..." }</small>
+              <h6 class="mb-0">{titulo}</h6>
+              <small class="text-muted">{  descripcion.length <= 50 ? descripcion : descripcion.substring(0, 50) + "..." }</small>
           {/if}
         </Link>
       {:else}
-        <Link class="list-group-item list-group-item-action link-resultado-buscador" to={resultado.slug}>
-          <h6 class="mb-0 py-2">{resultado.titulo}</h6>
+        <Link class="list-group-item list-group-item-action link-resultado-buscador" to={slug}>
+          <h6 class="mb-0 py-2">{titulo}</h6>
         </Link>
       {/if}
     {/each}
