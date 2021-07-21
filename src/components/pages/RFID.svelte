@@ -3,10 +3,8 @@
     import { currentSection, apiHost } from "../../stores/stores";
     
     import Template from '../ui/Template.svelte';
-
     import GridBrazaletes from '../ui/GridBrazaletes.svelte';
     import GridTiposBrazaletes from "../ui/GridTiposBrazaletes.svelte";
-    import Jumbotron from '../ui/Jumbotron.svelte';
 
     // export let id;
     export let location;
@@ -17,6 +15,11 @@
 
     let tipos = [];
     let brazaletes = [];
+    let tipoBrazalete = {
+        descripcion : "Soluciones RFID",
+        img : "https://www.brazaletesmexico.com/wp-content/uploads/brazaletes-mexico-tyvek.png",
+        descripcion_larga : "RFID son las siglas en inglés como Radio Frequency Identification, lo cual significa identificación por radiofrecuencia. Se trata de un sistema de identificación, almacenamiento y transmisión de datos remotos que utiliza dispositivos llamados etiquetas (tags), tarjetas o transponders RFID activos. Esta tecnología identifica a través de un lector, sin contacto y a distancia, una tarjeta o etiqueta (tag). Su función principal es transmitir la identidad de un objeto por medio de ondas de radio."
+    };
 
     onMount(async () => {
         if (tipo !== null) {
@@ -30,15 +33,11 @@
 </script>
 
 <svelte:head>
-    <title> Brazaletes México | Soluciones RFID </title>
+    <title> Brazaletes México | {tipoBrazalete.descripcion} </title>
 </svelte:head>
 
 <Template>
-    <h1 class='text-center my-5'>Soluciones RFID</h1>
-
-    <div class="container mb-5">
-        <Jumbotron></Jumbotron>
-    </div>
+    <h1 class='text-center my-5'>{tipoBrazalete.descripcion}</h1>
 
     <div class="container my-5">
             {#if tipo !== null}
