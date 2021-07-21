@@ -43,10 +43,6 @@
                     <i class="fab fa-instagram-square fa-lg"></i>
                 </a>
                 
-                <a href="https://twitter.com/BrazaletesMex" class="link-light text-decoration-none">
-                    <i class="fab fa-twitter-square fa-lg"></i>
-                </a>
-                
                 <a href="https://mx.linkedin.com/company/brazaletes-mexico" class="link-light text-decoration-none">
                     <i class="fab fa-youtube-square fa-lg"></i>
                 </a>

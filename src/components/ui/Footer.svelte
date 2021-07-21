@@ -57,11 +57,6 @@
             <p><strong class="fw-bold">SÍGUENOS</strong></p>
             <ul class="list-unstyled">
                 <li class="mb-2 small">
-                    <a class="link-light text-decoration-none" target="_blank" href="https://twitter.com/BrazaletesMex">
-                        <i class="fab fa-twitter-square fa-lg"></i> @BrazaletesMex
-                    </a>
-                </li>
-                <li class="mb-2 small">
                     <a class="link-light text-decoration-none" target="_blank" href="https://www.facebook.com/brazaletesmex/">
                         <i class="fab fa-facebook-square fa-lg"></i> @brazaletesmex
                     </a>
