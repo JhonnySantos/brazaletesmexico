@@ -1,3 +1,7 @@
+<script>
+    import {link} from 'svelte-routing';
+</script>
+
 <div>
     <div
         id="carouselExampleControls"
@@ -19,7 +23,9 @@
                         <div class="col-12 col-md-6 text-center text-md-start">
                             <h1 class="display-3 text-primary fw-bold fade-right fade-right-1">Brazaletes <br> Full Color</h1>
                             <h5 class="fw-bold fade-right">Promociona tu evento mientras lo controlas...</h5>
-                            <button class="btn btn-secondary shadow mt-3 fade-right">Ver más</button>
+                            <a href="/brazaletes/tyvek" class="btn btn-secondary shadow mt-3 fade-right" use:link>
+                                Ver más
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -35,7 +41,9 @@
                         <div class="col-12 col-md-6 pe-lg-5 text-center text-md-start">
                             <h1 class="display-4 text-primary fw-bold fade-left fade-left-1">Diseños preestablecidos</h1>
                             <h5 class="fw-bold fade-left">Rápidos tiempos de entrega</h5>
-                            <button class="btn btn-secondary shadow mt-3 fade-left">Comprar</button>
+                            <a href="/tienda" class="btn btn-secondary shadow mt-3 fade-left" use:link>
+                                Comprar
+                            </a>
                         </div>
                         <div class="col-12 col-md-6 ps-md-5 ps-lg-3 fade-right">
                             <img src="./images/carousel-image-2.png" class="img-fluid" alt="cotizaciones-online">
@@ -60,7 +68,9 @@
                                 <li>Identificación de cliente</li>
                             </ul>
                             <div class="text-center mb-3">
-                                <button class="btn btn-secondary shadow">Ver más</button>
+                                <a href="/rfid" class="btn btn-secondary shadow mt-3 fade-left" use:link>
+                                    Ver más
+                                </a>
                             </div>
                         </div>
                     </div>
