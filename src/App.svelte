@@ -16,6 +16,8 @@
 	import Tienda from './components/pages/Tienda.svelte';
 	import BrazaleteDetalle from "./components/pages/BrazaleteDetalle.svelte";
 	import NotFoundPage from './components/pages/NotFoundPage.svelte';
+	import ResultadosBusqueda from './components/pages/ResultadosBusqueda.svelte';
+	import Ocasiones from './components/pages/Ocasiones.svelte';
 </script>
 
 <Router>
@@ -45,6 +47,10 @@
 		<Route path="/tienda" component={Tienda} />
 		<Route path="/tienda/:slug" component={BrazaleteDetalle} let:params />
 
+		<Route path="/ocasiones/:slug" component={Ocasiones} let:params />
+
+		<Route path="/search/:search" component={ResultadosBusqueda} let:params />
+
 		<Route component={NotFoundPage} />
 	</div>
 </Router>
@@ -55,14 +61,19 @@
 		/* min-height: 320px; */
 		/* max-height: 320px; */
         cursor: pointer;
+		border: 0 !important;
     }
 
 	:global(.card-tipo-brazalete:hover) {
-		opacity: 0.7;
-		box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+		/* opacity: 0.7; */
+		box-shadow: 0 0.125rem .25rem rgba(0, 0, 0, 0.1) !important;
     }
 
 	:global(.link-ecofriendly:hover) {
         color: #38eeab !important;
+    }
+
+	:global(.link-resultado-buscador:hover) {
+        background-color: #e8e8e8 !important;
     }
 </style>
