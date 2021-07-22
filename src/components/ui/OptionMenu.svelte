@@ -2,21 +2,14 @@
   import { currentSection } from "../../stores/stores";
   import { link } from "svelte-routing";
   export let seccion = {};
-
-  // $: if (search) {
-  //   resultadosBusqueda = obtenerBusqueda();
-  // }
-
   let showSubmenu = false;
 
   const handleMouseOver = (e) => {
 		showSubmenu = true;
-    console.log( showSubmenu );
 	}
 
   const handleMouseOut = (e) => {
 		showSubmenu = false;
-    console.log( showSubmenu );
 	}
 
 </script>
