@@ -143,11 +143,7 @@
                         <strong class="fw-bold">SKU:</strong> BGA-AMA-1823-0001
                     </h6>
                     <p class="">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Reprehenderit, at! Voluptas illum minima exercitationem
-                        numquam, ipsa excepturi quasi, quis temporibus similique
-                        culpa sed accusamus quos sunt sint error, suscipit
-                        provident!
+                        {brazalete.descripcion_larga}
                     </p>
                     <h5 class="fw-bold my-4 text-primary">
                         ${brazalete.precio_min} + I.V.A
