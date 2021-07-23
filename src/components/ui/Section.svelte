@@ -1,11 +1,18 @@
 <script>
     export let name = "";
+    export let large = false;
 </script>
 
 <div class="container section-title-container my-5">
     <h3 class="section-title section-title-center">
         <b></b>
-            <span class="section-title-main text-uppercase">{name}</span>
+            <span class="section-title-main text-uppercase">
+                {#if large}
+                    <h1>{name}</h1>
+                {:else}
+                    {name}
+                {/if}
+            </span>
         <b></b>
     </h3>
 </div>

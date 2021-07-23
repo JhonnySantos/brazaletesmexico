@@ -10,6 +10,7 @@
 	import Blog from './components/pages/Blog.svelte';
 	import Home from './components/pages/Home.svelte';
 	import RFID from './components/pages/RFID.svelte';
+	import Post from './components/pages/Post.svelte';
 	import Tienda from './components/pages/Tienda.svelte';
 	import Nosotros from './components/pages/Nosotros.svelte';
 	import Contacto from './components/pages/Contacto.svelte';
@@ -65,6 +66,8 @@
 		<Route path="/terminos-de-uso-y-condiciones" component={TerminosCondiciones} />
 
 		<Route path="/blog" component={Blog} />
+
+		<Route path="/blog/post/:slug" component={Post} />
 
 		<Route component={NotFoundPage} />
 	</div>
