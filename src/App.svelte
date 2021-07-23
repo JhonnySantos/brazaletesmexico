@@ -8,16 +8,20 @@
 	import {Router, Route} from "svelte-routing";
 
 	import Home from './components/pages/Home.svelte';
-	import Brazaletes from './components/pages/Brazaletes.svelte';
 	import RFID from './components/pages/RFID.svelte';
-	import Ecofriendly from './components/pages/Ecofriendly.svelte';
-	import Hologramas from './components/pages/Hologramas.svelte';
-	import Promocionales from './components/pages/Promocionales.svelte';
 	import Tienda from './components/pages/Tienda.svelte';
-	import BrazaleteDetalle from "./components/pages/BrazaleteDetalle.svelte";
-	import NotFoundPage from './components/pages/NotFoundPage.svelte';
-	import ResultadosBusqueda from './components/pages/ResultadosBusqueda.svelte';
+	import Nosotros from './components/pages/Nosotros.svelte';
+	import Contacto from './components/pages/Contacto.svelte';
 	import Ocasiones from './components/pages/Ocasiones.svelte';
+	import Privacidad from './components/pages/Privacidad.svelte';
+	import Brazaletes from './components/pages/Brazaletes.svelte';
+	import Hologramas from './components/pages/Hologramas.svelte';
+	import Ecofriendly from './components/pages/Ecofriendly.svelte';
+	import NotFoundPage from './components/pages/NotFoundPage.svelte';
+	import Promocionales from './components/pages/Promocionales.svelte';
+	import BrazaleteDetalle from "./components/pages/BrazaleteDetalle.svelte";
+	import ResultadosBusqueda from './components/pages/ResultadosBusqueda.svelte';
+	import TerminosCondiciones from './components/pages/TerminosCondiciones.svelte';
 </script>
 
 <Router>
@@ -50,6 +54,14 @@
 		<Route path="/ocasiones/:slug" component={Ocasiones} let:params />
 
 		<Route path="/search/:search" component={ResultadosBusqueda} let:params />
+
+		<Route path="/nosotros" component={Nosotros} />
+
+		<Route path="/contacto" component={Contacto} />
+
+		<Route path="/aviso-de-privacidad" component={Privacidad} />
+
+		<Route path="/terminos-de-uso-y-condiciones" component={TerminosCondiciones} />
 
 		<Route component={NotFoundPage} />
 	</div>

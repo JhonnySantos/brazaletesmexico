@@ -1,11 +1,10 @@
 <script>
-    import { onMount } from 'svelte';
     import { currentSection, apiHost } from "../../stores/stores";
 
-    import Template from '../ui/Template.svelte';
-    import GridBrazaletes from '../ui/GridBrazaletes.svelte';
     import GridTiposBrazaletes from "../ui/GridTiposBrazaletes.svelte";
-    import Jumbotron from '../ui/Jumbotron.svelte';
+    import GridBrazaletes from '../ui/GridBrazaletes.svelte';
+    import Template from '../ui/Template.svelte';
+    import Loading from '../ui/Loading.svelte';
 
     // export let id;
     export let location;
@@ -13,6 +12,7 @@
 
     $currentSection = 4;
 
+    let promise;
     let tipos = [];
     let brazaletes = [];
     let tipoBrazalete = {
@@ -21,7 +21,7 @@
         descripcion_larga : "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Suscipit veniam ad itaque, quia quidem similique ratione, odio numquam eum provident facilis qui quis natus perspiciatis deserunt. Deserunt sequi iusto temporibus!"
     };
 
-    onMount(async () => {
+    const obtenerHologramas = async () => {
         if (tipo !== null) {
             const response = await fetch(`${$apiHost}/brazaletes/all/${tipo}`);
             brazaletes = await response.json();
@@ -29,7 +29,13 @@
             const response = await fetch(`${$apiHost}/tipos/all/${$currentSection}`);
             tipos = await response.json();
         }
-    });
+    };
+
+  $: if (window.location.pathname || tipo) {
+    window.scrollTo(0, 0);
+    promise = obtenerHologramas();
+    console.log(location)
+  }
 </script>
 
 <svelte:head>
@@ -37,6 +43,10 @@
 </svelte:head>
 
 <Template>
+  {#await promise}
+    <Loading />
+  {:then promise} 
+        
     <h1 class='text-center my-5'>{tipoBrazalete.descripcion}</h1>
 
     <div class="container my-5">
@@ -46,4 +56,5 @@
                 <GridTiposBrazaletes {tipos} />
             {/if}
     </div>
+  {/await}
 </Template>

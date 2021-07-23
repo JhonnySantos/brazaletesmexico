@@ -1,7 +1,7 @@
 <script>
-  import { onMount } from 'svelte'
   import { currentSection, currentIdTipo, apiHost } from "../../stores/stores"
   
+  import Loading from '../ui/Loading.svelte'
   import Template from '../ui/Template.svelte'
   import Jumbotron from '../ui/Jumbotron.svelte'
   import GridBrazaletes from '../ui/GridBrazaletes.svelte'
@@ -16,20 +16,19 @@
   let brazaletes = []
   let tipoBrazalete = {}
   let titulo = ''
+  let busqueda = false;
 
   const updateIdTipo = (event) => {
     $currentIdTipo = event.detail
     localStorage.setItem('currentIdTipo', event.detail)
   }
 
-  onMount(async () => {
-    window.scrollTo(0, 0);
+  const obtenerBusqueda = async () => {
     if (tipo !== null) {
       let response = await fetch(`${$apiHost}/brazaletes/all/${tipo}`)
       brazaletes = await response.json()
 
-      response = await fetch(`${$apiHost}/tipos/one/${$currentIdTipo}`)
-      
+      response = await fetch(`${$apiHost}/tipos/one/${tipo}`)
       tipoBrazalete = await response.json()
       titulo = tipoBrazalete.descripcion.toUpperCase()
     } else {
@@ -37,7 +36,12 @@
       tipos = await response.json()
       titulo = 'Brazaletes México'
     }
-  })
+  };
+
+  $: if (window.location.pathname || tipo) {
+    window.scrollTo(0, 0);
+    busqueda = obtenerBusqueda();
+  }
 </script>
 
 <svelte:head>
@@ -46,20 +50,26 @@
 
 <Template>
 
-  <h1 class='text-center my-5'> {titulo} </h1>
+  {#await busqueda}
+    <Loading />
+  {:then busqueda}
 
-  {#if Object.keys(tipoBrazalete).length > 0 }
-    <div class="container mb-5">
-      <Jumbotron {tipoBrazalete} />
-    </div>
-  {/if}
+    <h1 class='text-center my-5'> {titulo} </h1>
 
-  <div class="container my-5">
-    {#if tipo !== null}
-      <GridBrazaletes {brazaletes} />
-    {:else}
-      <GridTiposBrazaletes on:updateIdTipo={updateIdTipo} {tipos} />
+    {#if Object.keys(tipoBrazalete).length > 0 }
+      <div class="container mb-5">
+        <Jumbotron {tipoBrazalete} />
+      </div>
     {/if}
-  </div>
+
+    <div class="container my-5">
+      {#if tipo !== null}
+        <GridBrazaletes {brazaletes} />
+      {:else}
+        <GridTiposBrazaletes on:updateIdTipo={updateIdTipo} {tipos} />
+      {/if}
+    </div>
+
+  {/await}
 
 </Template>
