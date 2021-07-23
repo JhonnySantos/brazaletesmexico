@@ -7,6 +7,7 @@
 
 	import {Router, Route} from "svelte-routing";
 
+	import Blog from './components/pages/Blog.svelte';
 	import Home from './components/pages/Home.svelte';
 	import RFID from './components/pages/RFID.svelte';
 	import Tienda from './components/pages/Tienda.svelte';
@@ -62,6 +63,8 @@
 		<Route path="/aviso-de-privacidad" component={Privacidad} />
 
 		<Route path="/terminos-de-uso-y-condiciones" component={TerminosCondiciones} />
+
+		<Route path="/blog" component={Blog} />
 
 		<Route component={NotFoundPage} />
 	</div>
