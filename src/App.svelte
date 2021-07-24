@@ -90,4 +90,19 @@
 	:global(.link-resultado-buscador:hover) {
         background-color: #e8e8e8 !important;
     }
+
+	:global(.video-responsive) {
+		height: 0;
+		overflow: hidden;
+		padding-bottom: 56.25%;
+		padding-top: 30px;
+		position: relative;
+	}
+	:global(.video-responsive iframe, .video-responsive object, .video-responsive embed) {
+		height: 100%;
+		left: 0;
+		position: absolute;
+		top: 0;
+		width: 100%;
+	}
 </style>
