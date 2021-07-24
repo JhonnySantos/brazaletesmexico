@@ -1,7 +1,7 @@
 <script>
   import { link } from "svelte-routing";
   export let etiquetasBlog = [];
-  export let maxEtiquetas = 30;
+  export let maxEtiquetas = 20;
 </script>
 
 {#if etiquetasBlog.length > 0}

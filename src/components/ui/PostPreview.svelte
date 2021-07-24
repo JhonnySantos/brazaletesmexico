@@ -5,13 +5,16 @@
 
 <article class="blog-post">
   <h3 class="blog-post-title">
-    <Link class="text-decoration-none link-dark" to={post.slug}>{post.titulo}</Link>
+    <Link class="text-decoration-none link-dark" to="/blog/post/{post.slug}"
+      >{post.titulo}</Link
+    >
   </h3>
   <p class="blog-post-meta">
-    {post.fecha} por <Link to="/blog/autor/{ post.autor.toLowerCase() }">{post.autor}</Link>
+    <small class="d-inline-block text-muted"><i class="far fa-clock"></i> {post.fecha}</small>
+    por <Link class="text-decoration-none me-1" to="/blog/autor/{post.autor.toLowerCase()}">{post.autor}</Link>
   </p>
   {#if post.imagen}
-    <Link to={post.slug}>
+    <Link to="/blog/post/{post.slug}">
       <img
         class="img-fluid blog-cover-img"
         src={post.imagen}
@@ -20,10 +23,10 @@
     </Link>
   {/if}
   <p class="blog-cover-body">
-    {post.contenido}
+    {post.previa}
   </p>
   <div class="blog-cover-footer text-end">
-    <Link class="btn btn-sm btn-outline-primary" to={post.slug}>
+    <Link class="btn btn-sm btn-outline-primary" to="/blog/post/{post.slug}">
       Continuar leyendo <i class="fas fa-angle-double-right ms-1" />
     </Link>
   </div>

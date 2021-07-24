@@ -75,15 +75,11 @@
 
 <style>
 	:global(.card-tipo-brazalete) {
-		/* height: 320px; */
-		/* min-height: 320px; */
-		/* max-height: 320px; */
         cursor: pointer;
 		border: 0 !important;
     }
 
 	:global(.card-tipo-brazalete:hover) {
-		/* opacity: 0.7; */
 		box-shadow: 0 0.125rem .25rem rgba(0, 0, 0, 0.1) !important;
     }
 
