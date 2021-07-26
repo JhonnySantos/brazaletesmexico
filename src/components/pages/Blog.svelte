@@ -31,7 +31,7 @@
               slug: "Una-tarjeta-de-presentacion-dice-mas-que-mil-palabras",
               titulo: "Una tarjeta de presentación dice más que mil palabras",
               imagen: "https://www.brazaletesmexico.com/wp-content/uploads/una-tarjeta-duce-mas-que-mil-palabras.jpg",
-              previa: "RFID son las siglas en inglés como Radio Frequency Identification, lo cual significa identificación por radiofrecuencia. Se trata de un sistema de identificación, almacenamiento y transmisión de datos remotos que utiliza dispositivos llamados etiquetas (tags), tarjetas o transponders RFID activos.",
+              previa: "Las tarjetas de presentación nunca pasaran de moda solo evolucionan para convertirse en una herramienta más adecuada a la época, cumpliendo una función importante en el área de marketing y ventas.",
             },
             {
               autor: "Brazaletes México",
@@ -39,7 +39,7 @@
               slug: "etiqueta-holograma-de-seguridad",
               titulo: "Etiqueta holograma de Seguridad",
               imagen: "https://www.brazaletesmexico.com/wp-content/uploads/etiqueta-holograma-seguridad.png",
-              previa: "RFID son las siglas en inglés como Radio Frequency Identification, lo cual significa identificación por radiofrecuencia. Se trata de un sistema de identificación, almacenamiento y transmisión de datos remotos que utiliza dispositivos llamados etiquetas (tags), tarjetas o transponders RFID activos.",
+              previa: "¿Quieres combatir la manipulación de tus productos, brindar garantía, originalidad, calidad y prestigio? La solución: Etiqueta Holograma de Seguridad.",
             },
             {
               autor: "Brazaletes México",
@@ -48,7 +48,7 @@
               titulo: "Menú QR para Restaurantes",
               etiquetas: ["codigos qr", "menu digital", "menu qr"],
               imagen: "https://www.brazaletesmexico.com/wp-content/uploads/menu-qr-para-restaurantes.jpg",
-              previa: "RFID son las siglas en inglés como Radio Frequency Identification, lo cual significa identificación por radiofrecuencia. Se trata de un sistema de identificación, almacenamiento y transmisión de datos remotos que utiliza dispositivos llamados etiquetas (tags), tarjetas o transponders RFID activos.",
+              previa: "Los hábitos de consumo en los restaurantes han tenido un importante cambio en la forma de presentar sus productos y servicios al cliente de la mano de la tecnología.",
             },
             {
               autor: "Brazaletes México",
@@ -56,7 +56,8 @@
               slug: "brazalete-dispensador-de-gel-antibacterial",
               titulo: "Brazalete Dispensador de Gel Antibacterial",
               imagen: "https://www.brazaletesmexico.com/wp-content/uploads/brazaletes-dispensador-gel-antibacterial.png", 
-              previa: "RFID son las siglas en inglés como Radio Frequency Identification, lo cual significa identificación por radiofrecuencia. Se trata de un sistema de identificación, almacenamiento y transmisión de datos remotos que utiliza dispositivos llamados etiquetas (tags), tarjetas o transponders RFID activos.", },
+              previa: "La nueva normalidad exige medidas de seguridad y cuidado para toda la familia, como el lavado de manos frecuentemente, uso de cubrebocas, guantes y gel Antibacterial."
+            },
             {
               autor: "Brazaletes México",
               fecha: "3 Junio de 2019",
@@ -64,39 +65,40 @@
               titulo: "Pulseras y Brazaletes México 100% Reciclables",
               etiquetas: [],
               imagen: "https://www.brazaletesmexico.com/wp-content/uploads/ARTESANAL-1024x791.jpg", 
-              previa: "RFID son las siglas en inglés como Radio Frequency Identification, lo cual significa identificación por radiofrecuencia. Se trata de un sistema de identificación, almacenamiento y transmisión de datos remotos que utiliza dispositivos llamados etiquetas (tags), tarjetas o transponders RFID activos.", },
+              previa: "Es común escuchar hoy en día a cerca del cambio climático, derretimiento de los glaciales, extinción masiva de especies, contaminación de ríos, todo debido a la acción del hombre, el planeta está sufriendo cambios drásticos."
+            },
             {
               autor: "Brazaletes México",
               fecha: "21 Mayo de 2018",
               slug: "pulseras-inteligentes-rfid-para-resorts,-Hoteles-y-parques-tematicos",
               titulo: "Pulseras inteligentes RFID para Resorts, Hoteles y Parques temáticos",
               imagen: "https://www.brazaletesmexico.com/wp-content/uploads/pulseras-inteligentes-rfid-hoteles-resorts-parques-1024x768.jpg", 
-              previa: "RFID son las siglas en inglés como Radio Frequency Identification, lo cual significa identificación por radiofrecuencia. Se trata de un sistema de identificación, almacenamiento y transmisión de datos remotos que utiliza dispositivos llamados etiquetas (tags), tarjetas o transponders RFID activos.", 
+              previa: "El uso de pulseras inteligentes RFID para Resorts, Hoteles y Parques temáticos ha crecido significativamente en los últimos años, desde que uno de los principales parques temáticos adopto la tecnología RFID y desplazo las anticuadas pulseras y boletos de papel, estos han sido reemplazados por pases sin contacto, en forma de pulseras electrónicas."
             },
             {
               autor: "Brazaletes México",
               fecha: "16 Marzo de 2018",
               slug: "pulseras-artesanales-para-bodas",
               titulo: "Pulseras Artesanales para bodas",
-              imagen: "", 
-              previa:
-                "RFID son las siglas en inglés como Radio Frequency Identification, lo cual significa identificación por radiofrecuencia. Se trata de un sistema de identificación, almacenamiento y transmisión de datos remotos que utiliza dispositivos llamados etiquetas (tags), tarjetas o transponders RFID activos.", },
+              imagen: "https://www.brazaletesmexico.com/wp-content/uploads/pulseras-artesanales-para-boda.jpg", 
+              previa: "La boda sin lugar a duda uno de los eventos más especiales, donde tienen que elegir vestido, los arreglos, las flores, la locación, el pastel, las invitaciones."
+            },
             {
               autor: "Brazaletes México",
               fecha: "5 Enero de 2018",
               slug: "brazaletes-y-pulseras-promocionales",
               titulo: "Brazaletes y Pulseras Promocionales",
-              imagen: "", 
-              previa:
-                "RFID son las siglas en inglés como Radio Frequency Identification, lo cual significa identificación por radiofrecuencia. Se trata de un sistema de identificación, almacenamiento y transmisión de datos remotos que utiliza dispositivos llamados etiquetas (tags), tarjetas o transponders RFID activos.", },
+              imagen: "https://www.brazaletesmexico.com/wp-content/uploads/brazaletes-pulseras-promocionales-mexico.png", 
+              previa: "Personalizar una fiesta con brazaletes o pulseras es una idea original, creativa e innovadora, si se agrega tecnología de Radio Frecuencia (RFID) puede reconocer a sus invitados de una forma personal y única."
+            },
             {
               autor: "Brazaletes México",
               fecha: "5 Septiembre de 2017",
               slug: "brazaletes-y-pulseras-con-tecnologia-rfid",
               titulo: "Brazaletes y Pulseras con Tecnología RFID",
-              imagen: "", 
-              previa:
-                "RFID son las siglas en inglés como Radio Frequency Identification, lo cual significa identificación por radiofrecuencia. Se trata de un sistema de identificación, almacenamiento y transmisión de datos remotos que utiliza dispositivos llamados etiquetas (tags), tarjetas o transponders RFID activos.", },
+              imagen: "https://www.brazaletesmexico.com/wp-content/uploads/brazaletes-pulseras-con-tecnologia-rfid.png", 
+              previa: "La tecnología avanza cada día más, y los brazaletes con tecnología RFID son una realidad hoy, debido a su versatilidad y fácil manejo son utilizados para múltiples tareas desde control de acceso para eventos, hasta control de natalidad en hospitales y seguimiento de paquetes."
+            },
           ],
           etiquetasBlog: [
             "Barazaletes", 
@@ -134,7 +136,7 @@
             "tecnologia rfid"
           ],
         });
-      }, 2000);
+      }, 500);
     });
   };
 
