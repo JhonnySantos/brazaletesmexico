@@ -7,8 +7,10 @@
 
 	import {Router, Route} from "svelte-routing";
 
+	import Blog from './components/pages/Blog.svelte';
 	import Home from './components/pages/Home.svelte';
 	import RFID from './components/pages/RFID.svelte';
+	import Post from './components/pages/Post.svelte';
 	import Tienda from './components/pages/Tienda.svelte';
 	import Nosotros from './components/pages/Nosotros.svelte';
 	import Contacto from './components/pages/Contacto.svelte';
@@ -56,12 +58,14 @@
 		<Route path="/search/:search" component={ResultadosBusqueda} let:params />
 
 		<Route path="/nosotros" component={Nosotros} />
-
 		<Route path="/contacto" component={Contacto} />
-
 		<Route path="/aviso-de-privacidad" component={Privacidad} />
-
 		<Route path="/terminos-de-uso-y-condiciones" component={TerminosCondiciones} />
+
+		<Route path="/blog" component={Blog} />
+		<Route path="/blog/:filtrarPor/:slug" component={Blog} />
+
+		<Route path="/blog/post/:slug" component={Post} />
 
 		<Route component={NotFoundPage} />
 	</div>
@@ -69,15 +73,11 @@
 
 <style>
 	:global(.card-tipo-brazalete) {
-		/* height: 320px; */
-		/* min-height: 320px; */
-		/* max-height: 320px; */
         cursor: pointer;
 		border: 0 !important;
     }
 
 	:global(.card-tipo-brazalete:hover) {
-		/* opacity: 0.7; */
 		box-shadow: 0 0.125rem .25rem rgba(0, 0, 0, 0.1) !important;
     }
 
@@ -88,4 +88,19 @@
 	:global(.link-resultado-buscador:hover) {
         background-color: #e8e8e8 !important;
     }
+
+	:global(.video-responsive) {
+		height: 0;
+		overflow: hidden;
+		padding-bottom: 56.25%;
+		padding-top: 30px;
+		position: relative;
+	}
+	:global(.video-responsive iframe, .video-responsive object, .video-responsive embed) {
+		height: 100%;
+		left: 0;
+		position: absolute;
+		top: 0;
+		width: 100%;
+	}
 </style>

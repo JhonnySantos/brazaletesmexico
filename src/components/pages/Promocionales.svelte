@@ -1,35 +1,35 @@
 <script>
-    import { currentSection, apiHost } from "../../stores/stores";
+  import { currentSection, apiHost } from "../../stores/stores";
 
-    import GridTiposBrazaletes from "../ui/GridTiposBrazaletes.svelte";
-    import GridBrazaletes from '../ui/GridBrazaletes.svelte';
-    import Template from '../ui/Template.svelte';
-import Loading from '../ui/Loading.svelte';
+  import GridTiposBrazaletes from "../ui/GridTiposBrazaletes.svelte";
+  import GridBrazaletes from '../ui/GridBrazaletes.svelte';
+  import Template from '../ui/Template.svelte';
+  import Loading from '../ui/Loading.svelte';
 
-    // export let id;
-    export let location;
-    export let tipo = null;
+  // export let id;
+  export let location;
+  export let tipo = null;
 
-    $currentSection = 5;
+  $currentSection = 5;
 
-    let promise;
-    let tipos = [];
-    let brazaletes = [];
-    let tipoBrazalete = {
-        descripcion : "Brazaletes Promocionales",
-        img : "https://www.brazaletesmexico.com/wp-content/uploads/brazaletes-mexico-tyvek.png",
-        descripcion_larga : "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Suscipit veniam ad itaque, quia quidem similique ratione, odio numquam eum provident facilis qui quis natus perspiciatis deserunt. Deserunt sequi iusto temporibus!"
-    };
+  let promise;
+  let tipos = [];
+  let brazaletes = [];
+  let tipoBrazalete = {
+    descripcion : "Brazaletes Promocionales",
+    img : "https://www.brazaletesmexico.com/wp-content/uploads/brazaletes-mexico-tyvek.png",
+    descripcion_larga : "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Suscipit veniam ad itaque, quia quidem similique ratione, odio numquam eum provident facilis qui quis natus perspiciatis deserunt. Deserunt sequi iusto temporibus!"
+  };
 
-    const obtenerPromcionales = async () => {
-        if (tipo !== null) {
-            const response = await fetch(`${$apiHost}/brazaletes/all/${tipo}`);
-            brazaletes = await response.json();
-        } else {
-            const response = await fetch(`${$apiHost}/tipos/all/${$currentSection}`);
-            tipos = await response.json();
-        }
-    };
+  const obtenerPromcionales = async () => {
+    if (tipo !== null) {
+      const response = await fetch(`${$apiHost}/brazaletes/all/${tipo}`);
+      brazaletes = await response.json();
+    } else {
+      const response = await fetch(`${$apiHost}/tipos/all/${$currentSection}`);
+      tipos = await response.json();
+    }
+  };
 
   $: if (window.location.pathname || tipo) {
     window.scrollTo(0, 0);
