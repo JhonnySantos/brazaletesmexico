@@ -31,10 +31,9 @@
         }
     };
 
-  $: if (window.location.pathname || tipo) {
+  $: if (location.pathname || tipo) {
     window.scrollTo(0, 0);
     promise = obtenerHologramas();
-    console.log(location)
   }
 </script>
 

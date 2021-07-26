@@ -8,7 +8,7 @@
   <div class="p-4">
     <h4>Etiquetas</h4>
     {#each etiquetasBlog.slice(0, maxEtiquetas) as etiqueta, i}
-      <a href="/blog/tag/{etiqueta.toLowerCase().replace(/\s/g, '-')}" class="tag tag-outline-info rounded text-decoration-none m-1" use:link>
+      <a href="/blog/etiqueta/{etiqueta.toLowerCase().replace(/\s/g, '-')}" class="tag tag-outline-info rounded text-decoration-none m-1" use:link>
         {etiqueta}
       </a>
     {/each}

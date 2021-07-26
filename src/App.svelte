@@ -58,14 +58,12 @@
 		<Route path="/search/:search" component={ResultadosBusqueda} let:params />
 
 		<Route path="/nosotros" component={Nosotros} />
-
 		<Route path="/contacto" component={Contacto} />
-
 		<Route path="/aviso-de-privacidad" component={Privacidad} />
-
 		<Route path="/terminos-de-uso-y-condiciones" component={TerminosCondiciones} />
 
 		<Route path="/blog" component={Blog} />
+		<Route path="/blog/:filtrarPor/:slug" component={Blog} />
 
 		<Route path="/blog/post/:slug" component={Post} />
 
