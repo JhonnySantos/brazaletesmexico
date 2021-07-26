@@ -189,6 +189,11 @@
 
   promise = emulateBlogApi();
   window.scrollTo(0, 0);
+
+  $: if(location) {
+    promise = emulateBlogApi();
+  }
+
 </script>
 
 <Template>
@@ -201,7 +206,7 @@
           <article class="post">
             <h2 class="post-title">{data.post.titulo}</h2>
             <p class="post-meta">
-              Publicado en <Link class="text-decoration-none" to="/blog/categoria/{data.post.categoria}" >{data.post.categoria}</Link>
+              Publicado en <Link class="text-decoration-none" to="/blog/categoria/{data.post.categoria.toLowerCase().replace(/\s/g, '-')}" >{data.post.categoria}</Link>
               por <Link class="text-decoration-none me-1" to="/blog/autor/{data.post.autor.toLowerCase()}" >{data.post.autor}</Link>
               <small class="d-inline-block text-muted"><i class="far fa-clock" /> {data.post.fecha}</small>
             </p>
@@ -212,7 +217,9 @@
               <div class="post-footer small border-top border-bottom py-3 text-muted">
                 <p class="m-0">
                   <strong>Etiquetas:</strong>
-                  {@html data.post.etiquetas.map((etiqueta) =>'<a class="text-decoration-none" href="#">' + etiqueta + "</a>").join(", ")}.
+                  {#each data.post.etiquetas as etiqueta, i }
+                    <Link class="text-decoration-none" to="blog/tag/{etiqueta.toLowerCase().replace(/\s/g, '-')}">{etiqueta}</Link>{i == data.post.etiquetas.length - 1 ? '' : ', '}
+                  {/each}
                 </p>
               </div>
             {/if}

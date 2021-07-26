@@ -14,7 +14,7 @@
       <i class="far fa-clock"></i> {post.fecha}
     </small>
     <small class="d-inline-block text-muted">
-      por <Link class="text-decoration-none me-1" to="/blog/autor/{post.autor.toLowerCase()}">{post.autor}</Link>
+      por <Link class="text-decoration-none me-1" to="/blog/autor/{post.autor.toLowerCase().replace(/\s/g, '-')}">{post.autor}</Link>
     </small>
   </p>
   {#if post.imagen}
