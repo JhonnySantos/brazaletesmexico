@@ -7,6 +7,10 @@
 
   export let slug = "";
   export let location = "";
+
+  let promise = false;
+  let maxLatestPosts = 5;
+
   const entradasBlog = [
     {
       autor: "Marketing",
@@ -100,9 +104,6 @@
     },
   ];
 
-  let promise = false;
-  let maxLatestPosts = 5;
-
   const emulateBlogApi = () => {
     return new Promise((resolve) => {
       setTimeout(() => {
@@ -158,6 +159,10 @@
 
 </script>
 
+<svelte:head>
+  <title>Brazaletes México | Blog</title>
+</svelte:head>
+
 <Template>
   {#await promise}
     <Loading />
@@ -169,7 +174,7 @@
             <h2 class="post-title">{data.post.titulo}</h2>
             <p class="post-meta">
               Publicado en <Link class="text-decoration-none" to="/blog/categoria/{data.post.categoria.toLowerCase().replace(/\s/g, '-')}" >{data.post.categoria}</Link>
-              por <Link class="text-decoration-none me-1" to="/blog/autor/{data.post.autor.toLowerCase()}" >{data.post.autor}</Link>
+              por <Link class="text-decoration-none me-1" to="/blog/autor/{data.post.autor.toLowerCase().replace(/\s/g, '-')}" >{data.post.autor}</Link>
               <small class="d-inline-block text-muted"><i class="far fa-clock" /> {data.post.fecha}</small>
             </p>
             <div class="post-content">

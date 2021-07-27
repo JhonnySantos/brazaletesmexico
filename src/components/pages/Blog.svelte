@@ -202,6 +202,10 @@
   }
 </script>
 
+<svelte:head>
+  <title>Brazaletes México | Blog</title>
+</svelte:head>
+
 <Template>
   {#await promise}
     <Loading />

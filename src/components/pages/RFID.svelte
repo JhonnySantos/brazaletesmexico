@@ -1,60 +1,49 @@
 <script>
-    import { currentSection, apiHost } from "../../stores/stores";
-    
-    import GridTiposBrazaletes from "../ui/GridTiposBrazaletes.svelte";
-    import GridBrazaletes from '../ui/GridBrazaletes.svelte';
-    import Template from '../ui/Template.svelte';
-    import Loading from "../ui/Loading.svelte";
+  import { currentSection, apiHost } from "../../stores/stores";
 
-    // export let id;
-    export let location;
-    export let tipo = null;
+  import GridTiposBrazaletes from "../ui/GridTiposBrazaletes.svelte";
+  import GridBrazaletes from "../ui/GridBrazaletes.svelte";
+  import Template from "../ui/Template.svelte";
+  import Loading from "../ui/Loading.svelte";
 
-    $currentSection = 2;
+  $currentSection = 2;
 
-    let promise;
-    let tipos = [];
-    let brazaletes = [];
-    let tipoBrazalete = {
-        descripcion : "Soluciones RFID",
-        img : "https://www.brazaletesmexico.com/wp-content/uploads/brazaletes-mexico-tyvek.png",
-        descripcion_larga : "RFID son las siglas en inglés como Radio Frequency Identification, lo cual significa identificación por radiofrecuencia. Se trata de un sistema de identificación, almacenamiento y transmisión de datos remotos que utiliza dispositivos llamados etiquetas (tags), tarjetas o transponders RFID activos. Esta tecnología identifica a través de un lector, sin contacto y a distancia, una tarjeta o etiqueta (tag). Su función principal es transmitir la identidad de un objeto por medio de ondas de radio."
-    };
+  let promise;
+  export let tipo = null;
+  export let location = "";
 
-    const obtenerRFID = async () => {
-        if (tipo !== null) {
-            const response = await fetch(`${$apiHost}/brazaletes/all/${tipo}`);
-            brazaletes = await response.json();
-        } else {
-            const response = await fetch(`${$apiHost}/tipos/all/${$currentSection}`);
-            tipos = await response.json();
-        }
-    };
+  const obtenerRFID = async () => {
+    if (tipo !== null) {
+      const response = await fetch(`${$apiHost}/brazaletes/all/${tipo}`);
+      return await response.json();
+    } else {
+      const response = await fetch(`${$apiHost}/tipos/all/${$currentSection}`);
+      return await response.json();
+    }
+  };
 
-  $: if (window.location.pathname || tipo) {
+  $: if (location.pathname || tipo) {
     window.scrollTo(0, 0);
     promise = obtenerRFID();
   }
 </script>
 
 <svelte:head>
-    <title> Brazaletes México | {tipoBrazalete.descripcion} </title>
+  <title>Brazaletes México | Soluciones RFID</title>
 </svelte:head>
 
 <Template>
   {#await promise}
     <Loading />
-  {:then promise}
-
-    <h1 class='text-center my-5'>{tipoBrazalete.descripcion}</h1>
+  {:then data}
+    <h1 class="text-center my-5">Soluciones RFID</h1>
 
     <div class="container my-5">
-            {#if tipo !== null}
-                <GridBrazaletes {brazaletes} />
-            {:else}
-                <GridTiposBrazaletes {tipos} {location} />
-            {/if}
+      {#if tipo !== null}
+        <GridBrazaletes brazaletes={data} />
+      {:else}
+        <GridTiposBrazaletes tipos={data} {location} />
+      {/if}
     </div>
-
   {/await}
 </Template>
