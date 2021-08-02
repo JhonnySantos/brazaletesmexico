@@ -23,25 +23,30 @@
   const suscribirse = () => {
     const formulario = document.querySelector("form");
     if (formulario.checkValidity()) {
-      actualizarSuscripcion();
+      solicitarSuscripcion()
+      .then((res) => {
+        console.log(res);
+        actualizarSuscripcion();
+      })
+      .catch((err) => {
+        console.log(err);
+      });
     }
   };
 
   const solicitarSuscripcion = async () => {
-    try {
-      const response = await fetch(`${$apiHost}/suscribirse/${inputEmail}`, {
-        method: "POST",
-        body: new FormData( document.querySelector("form")[0] ),
-      });
-
-      if (response.ok) {
-        return true;
-      } else {
-        console.warn( `Error: ${response.statusText}` );
-        return false;
+    const data = {email: inputEmail};
+    const response = await fetch(`${$apiHost}/suscribirse`, {
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: {
+        "Content-Type": "application/json",
       }
-    } catch (error) {
-      console.warn( `Error: ${error}` );
+    });
+    if (response.ok) {
+      return await response.text();
+    } else {
+      throw response.statusText;
     }
   };
 
