@@ -1,67 +1,86 @@
 <script>
-  import { fade } from 'svelte/transition';
-  import { apiHost } from '../../stores/stores';
-  import ToastNotification from './ToastNotification.svelte';
+  import { fade } from "svelte/transition";
+  import { apiHost } from "../../stores/stores";
+  import ToastNotification from "./ToastNotification.svelte";
 
   let inputEmail = "";
   let isSubscribed = sessionStorage.getItem("isSubscribed");
-
-  let datosNotificacion = {
-    icono : "fa-check-circle",
-    margen : true,
-    mensaje : "Gracias por suscribirte",
-    colorTexto : "white",
-    colorFondo : "success",
-    colorBorde : "success",
+  let notificacionData = {
+    show: false,
+    margen: true
   };
 
-  const actualizarSuscripcion = () => {
-    sessionStorage.setItem("isSubscribed", true);
-    isSubscribed = sessionStorage.getItem("isSubscribed");
-  };
-
-  const suscribirse = () => {
+  const handleSuscribe = async () => {
     const formulario = document.querySelector("form");
+
     if (formulario.checkValidity()) {
-      solicitarSuscripcion()
-      .then((res) => {
-        console.log(res);
-        actualizarSuscripcion();
-      })
-      .catch((err) => {
-        console.log(err);
+      const response = await fetch(`${$apiHost}/subscribe`, {
+        method: "POST",
+        body: JSON.stringify({ email: inputEmail }),
+        headers: {
+          "Content-Type": "application/json"
+        }
       });
-    }
-  };
 
-  const solicitarSuscripcion = async () => {
-    const data = {email: inputEmail};
-    const response = await fetch(`${$apiHost}/suscribirse`, {
-      method: "POST",
-      body: JSON.stringify(data),
-      headers: {
-        "Content-Type": "application/json",
+      if (response.ok) {
+        const data = await response.json();
+        if (data.done) {
+          isSubscribed = true;
+          document.querySelector("form").reset();
+          sessionStorage.setItem("isSubscribed", true);
+          document.querySelector("#subscribe-form").reset();
+          notificacionData = {
+            show: true,
+            margen: true,
+            icono: "fa-check",
+            colorFondo: "success",
+            colorBorde: "success",
+            colorTexto: "white",
+            mensaje: "¡Gracias por suscribirte!",
+          };
+        } else {
+          isSubscribed = false;
+          sessionStorage.setItem("isSubscribed", false);
+          notificacionData = {
+            show: true,
+            margen: true,
+            icono: "fa-check",
+            colorFondo: "success",
+            colorBorde: "success",
+            colorTexto: "white",
+            mensaje: "Ya te encuentras suscrito previamente.",
+          };
+        }
+      } else {
+        isSubscribed = false;
+        sessionStorage.setItem("isSubscribed", false);
+        notificacionData = {
+            show: true,
+            margen: false,
+            icono: "fa-times",
+            colorFondo: "danger",
+            colorBorde: "danger",
+            colorTexto: "white",
+            mensaje: "No es posible suscribirte por el momento.",
+          };
       }
-    });
-    if (response.ok) {
-      return await response.text();
-    } else {
-      throw response.statusText;
     }
   };
 
-  $: if ( isSubscribed === "true" ) {
-    isSubscribed = sessionStorage.getItem("isSubscribed");
+  $: if ( notificacionData ) {
+    setTimeout(() => {
+      notificacionData.show = false;
+    }, 4500);
   }
+
 </script>
 
-{#if isSubscribed === "true"}
+{#if isSubscribed == "true"}
   <button class="btn btn-sm btn-success px-3" type="button" disabled transition:fade>
     <i class="fas fa-check-circle fa-lg" /> suscrito
   </button>
-  <ToastNotification notificacion={datosNotificacion} />
 {:else}
-  <form on:submit|preventDefault={suscribirse}>
+  <form on:submit|preventDefault={handleSuscribe}>
     <div class="input-group input-group-sm">
       <input
         aria-describedby="button-subscribe"
@@ -76,4 +95,8 @@
       <button class="btn btn-secondary" type="submit">Suscribirse</button>
     </div>
   </form>
+{/if}
+
+{#if notificacionData.show}
+  <ToastNotification notificacion={notificacionData} />
 {/if}
