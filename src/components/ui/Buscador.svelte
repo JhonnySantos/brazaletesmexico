@@ -56,7 +56,7 @@
       on:keyup={ handleKeyupSearch }
       on:keydown={ handleKeypressSearch }
     />
-    <button class="btn btn-secondary" type="submit" id="button-addon-search" on:click={ inputSearch.length > 3 && navigateToResultadosBusqueda }>
+    <button class="btn btn-secondary" type="submit" id="button-addon-search" on:click={ navigateToResultadosBusqueda }>
       Buscar
     </button>
   </div>

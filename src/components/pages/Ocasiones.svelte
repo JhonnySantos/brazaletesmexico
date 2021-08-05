@@ -1,7 +1,7 @@
 <script>
   import GridTiposBrazaletes from "../ui/GridTiposBrazaletes.svelte";
+  import { apiHost, imagesPath } from "../../stores/stores";
   import NotFoundPage from "./NotFoundPage.svelte";
-  import { apiHost } from "../../stores/stores";
   import Template from "../ui/Template.svelte";
   import Loading from "../ui/Loading.svelte";
   import Section from "../ui/Section.svelte";
@@ -42,7 +42,7 @@
       <div class="row align-items-center">
         <div class="col-12 col-md-6 p-0">
           <img
-            src="./../images/{ocasion.img}"
+            src={`${$imagesPath}/${ocasion.img}`}
             class="img-fluid w-100"
             alt={ocasion.encabezado}
           />

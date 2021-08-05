@@ -1,7 +1,8 @@
 <script>
-    import Menu from './Menu.svelte';
-    import {Link} from 'svelte-routing';
+    import { imagesPath } from '../../stores/stores';
     import Buscador from './Buscador.svelte';
+    import {Link} from 'svelte-routing';
+    import Menu from './Menu.svelte';
 </script>
 
 <header>
@@ -9,7 +10,7 @@
     <div class="container d-flex flex-wrap align-items-center justify-content-center justify-content-sm-center justify-content-md-between justify-content-lg-between">
         <Link class="d-flex align-items-center me-lg-auto my-2" to='/'>
             <img 
-                src="../../images/logo.png" 
+                src={`${$imagesPath}/logo.png`}
                 width="150" 
                 alt="Logo brazaletes mx" />
         </Link>
