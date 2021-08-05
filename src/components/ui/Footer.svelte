@@ -1,5 +1,6 @@
 <script>
     import { link } from 'svelte-routing';
+    import FormSuscribirse from './FormSuscribirse.svelte';
     const currentYear = new Date().getFullYear();
 </script>
 
@@ -59,18 +60,7 @@
                         </a>
                     </li>
                     <li class="small">
-                        <div class="input-group input-group-sm">
-                            <input
-                              type="text"
-                              class="form-control border-secondary"
-                              placeholder="correo electrónico"
-                              aria-label="Subscribe"
-                              aria-describedby="button-subscribe"
-                            />
-                            <button class="btn btn-secondary" type="button">
-                              Suscribirse
-                            </button>
-                        </div>
+                        <FormSuscribirse />
                     </li>
                 </ul>
             </div>

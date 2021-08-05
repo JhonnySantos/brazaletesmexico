@@ -140,10 +140,12 @@
                 <div class="col-12 col-sm-12 col-md-7">
                     <h4 class="fw-bold mb-1">{brazalete.descripcion}</h4>
                     <h6 class="mb-3 text-muted">
-                        <strong class="fw-bold">SKU:</strong> BGA-AMA-1823-0001
+                        {#if brazalete.sku}
+                            <strong class="fw-bold">SKU:</strong>{brazalete.sku}
+                        {/if}
                     </h6>
-                    <p class="">
-                        {brazalete.descripcion_larga}
+                    <p>
+                        {@html brazalete.descripcion_larga}
                     </p>
                     <h5 class="fw-bold my-4 text-primary">
                         ${brazalete.precio_min} + I.V.A

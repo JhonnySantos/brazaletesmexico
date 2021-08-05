@@ -1,4 +1,5 @@
 <script>
+  import { imagesPath } from "../../stores/stores";
   export let tipoBrazalete = {};
 </script>
 
@@ -6,7 +7,7 @@
 <div class="jumbotron">
   <div class="col-12 col-md-6 col-lg-5 py-5 py-md-4 py-lg-0 px-0">
     <img 
-      src={`./../images/jumbotron-tipo-${tipoBrazalete.id}.png`}
+      src={`${$imagesPath}/jumbotron-tipo-${tipoBrazalete.id}.png`}
       alt="{tipoBrazalete.descripcion}"
       class="img-fluid"
     />
