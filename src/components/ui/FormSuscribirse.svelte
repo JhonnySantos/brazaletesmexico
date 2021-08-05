@@ -6,8 +6,8 @@
   let inputEmail = "";
   let isSubscribed = sessionStorage.getItem("isSubscribed");
   let notificacionData = {
+    margen: true,
     show: false,
-    margen: true
   };
 
   const handleSuscribe = async () => {

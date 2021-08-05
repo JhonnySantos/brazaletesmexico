@@ -1,11 +1,11 @@
 <script>
     import { onMount } from 'svelte'
-    import { currentSection, apiHost, currentIdTipo } from "../../stores/stores";
+    import { Link } from 'svelte-routing';
+    import { currentSection, apiHost, currentIdTipo, imagesPath } from "../../stores/stores";
 
-    import Template from '../ui/Template.svelte';
-    
     import Section from '../ui/Section.svelte';
     import Carousel from '../ui/Carousel.svelte';
+    import Template from '../ui/Template.svelte';
     import EventsGrid from '../ui/EventsGrid.svelte';
     import BenefitsGrid from '../ui/BenefitsGrid.svelte';
     import GridTiposBrazaletes from '../ui/GridTiposBrazaletes.svelte';
@@ -15,7 +15,6 @@
     export let location = "";
 
     $currentSection = 0;
-    
 
     const benefits = [
         {
@@ -37,6 +36,57 @@
             text    : 'Nos enfocamos en ofrecer el mejor precio en el mercado basado en la calidad, tiempo de entrega y el servicio que ofrecemos.'
         },
     ];
+
+    const staticTipos = [
+        {
+            "id": 1,
+            "descripcion": "Brazaletes de Tyvek",
+            "img": "jumbotron-tipo-1.png",
+            "slug": "/brazaletes/tyvek"
+        },
+        {
+            "id": 2,
+            "descripcion": "Brazaletes de Vinil",
+            "img": "jumbotron-tipo-2.png",
+            "slug": "/brazaletes/vinil"
+        },
+        {
+            "id": 3,
+            "descripcion": "Brazaletes Holográficos",
+            "img": "jumbotron-tipo-3.png",
+            "slug": "/brazaletes/holograficos"
+        },
+        {
+            "id": 4,
+            "descripcion": "Brazaletes Hospitalarios",
+            "img": "jumbotron-tipo-4.png",
+            "slug": "/brazaletes/hospitalarios"
+        },
+        {
+            "id": 5,
+            "descripcion": "Brazaletes de Silicón",
+            "img": "jumbotron-tipo-5.png",
+            "slug": "/brazaletes/silicon"
+        },
+        {
+            "id": 6,
+            "descripcion": "Brazaletes de Tela",
+            "img": "jumbotron-tipo-6.png",
+            "slug": "/brazaletes/tela"
+        },
+        {
+            "id": 7,
+            "descripcion": "Brazaletes Artesanales",
+            "img": "jumbotron-tipo-7.png",
+            "slug": "/brazaletes/artesanales"
+        },
+        {
+            "id": 21,
+            "descripcion": "PVC",
+            "img": "jumbotron-tipo-21.png",
+            "slug": "/brazaletes/pvc"
+        }
+    ]
 
     const updateIdTipo = (event) => {
         $currentIdTipo = event.detail
@@ -63,7 +113,23 @@
         <Section name='BRAZALETES POR COTIZACIÓN' />
 
         <div class="container my-4">
-            <GridTiposBrazaletes on:updateIdTipo={updateIdTipo} {tipos} />
+
+            <!-- <GridTiposBrazaletes on:updateIdTipo={updateIdTipo} {tipos} /> -->
+
+            <div class="row row-cols-2 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 justify-content-'start' g-3">
+                {#each staticTipos as tipo}
+                    <div id={tipo.id} class="col">
+                        <Link class="nav-link p-0 h-100" to={tipo.slug} on:click={updateIdTipo( {detail: tipo.id} )}>
+                            <div class="card card-tipo-brazalete h-100">
+                                <div class="card-body pb-0">
+                                    <h5 class="card-title text-center fw-bold">{tipo.descripcion}</h5>
+                                </div>
+                                <img src={`${$imagesPath}/${tipo.img}`} class="card-img-bottom"  alt="{tipo.descripcion}">
+                            </div>
+                        </Link>
+                    </div>
+                {/each}
+            </div>
         </div>
 
         <Section name='BRAZALETES PARA CADA OCASIÓN' />
