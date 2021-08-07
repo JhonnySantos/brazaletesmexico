@@ -131,31 +131,106 @@
         <div class="container my-5">
             <div class="row">
                 <div class="col-12 col-sm-12 col-md-5">
-                    {#if Array.isArray(brazalete.img) }
-                        <div id="carouselExampleControls" class="carousel carousel-dark slide" data-bs-ride="carousel">
-                            <div class="carousel-inner px-5">
-                                {#each brazalete.img as imagen, i }
-                                    <div class="carousel-item {i === 0 ? "active" : "" }">
-                                        <img src={imagen} class="d-block w-100" alt="{brazalete.descripcion}_{i}">
-                                    </div>
-                                {/each}
+                    <div class="position-sticky" style="top: 1rem;">
+                        {#if Array.isArray(brazalete.img) }
+                            <div id="carouselExampleControls" class="carousel carousel-dark slide" data-bs-ride="carousel">
+                                <div class="carousel-inner px-5">
+                                    {#each brazalete.img as imagen, i }
+                                        <div class="carousel-item {i === 0 ? "active" : "" }">
+                                            <img src={imagen} class="d-block w-100" alt="{brazalete.descripcion}_{i}">
+                                        </div>
+                                    {/each}
+                                </div>
+                                <button class="carousel-control-prev justify-content-start" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Previous</span>
+                                </button>
+                                <button class="carousel-control-next justify-content-end" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Next</span>
+                                </button>
                             </div>
-                            <button class="carousel-control-prev justify-content-start" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Previous</span>
-                            </button>
-                            <button class="carousel-control-next justify-content-end" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Next</span>
-                            </button>
-                        </div>
-                    {:else}
-                    <img
-                        src={brazalete.img}
-                        alt={brazalete.descripcion}
-                        class="img-fluid"
-                    />
-                    {/if}
+                        {:else}
+                            <div class="text-center">
+                                <img
+                                    src={brazalete.img}
+                                    alt={brazalete.descripcion}
+                                    class="img-fluid w-100"
+                                />
+                            </div>
+                            {#if brazalete.precio_min <= 0}
+                                <div class="mb-3">
+                                    <label for="paquetes" class="form-label d-block">Paquete de:</label>
+                                    <div class="row row-cols-auto g-3">
+                                        <div class="col">
+                                            <input
+                                                type="radio"
+                                                bind:group={cantidad}
+                                                class="btn-check"
+                                                name="paquetes"
+                                                id="option1"
+                                                autocomplete="off"
+                                                checked
+                                                value={100}
+                                            />
+                                            <label class="btn btn-sm btn-outline-primary px-1 px-md-2 px-lg-3" for="option1">100 pieza</label>
+                                        </div>
+
+                                        <div class="col">
+                                            <input
+                                                type="radio"
+                                                bind:group={cantidad}
+                                                class="btn-check"
+                                                name="paquetes"
+                                                id="option2"
+                                                autocomplete="off"
+                                                value={1000}
+                                            />
+                                            <label
+                                                class="btn btn-sm btn-outline-primary px-1 px-md-2 px-lg-3"
+                                                for="option2">1,000 piezas</label
+                                            >
+                                        </div>
+
+                                        <div class="col">
+                                            <input
+                                                type="radio"
+                                                bind:group={cantidad}
+                                                class="btn-check"
+                                                name="paquetes"
+                                                id="option4"
+                                                autocomplete="off"
+                                                value={-1}
+                                            />
+                                            <label
+                                                class="btn btn-sm btn-outline-primary px-1 px-md-2 px-lg-3"
+                                                for="option4">OTROS</label
+                                            >
+                                        </div>
+
+                                        <div class="col-md-3">
+                                            <input
+                                                type="number"
+                                                bind:value={customCantidad}
+                                                name="cantidad"
+                                                id="cantidad"
+                                                class="form-control form-control-sm text-center border-3"
+                                                class:border-primary={!disabledCustomCantidad}
+                                                disabled={disabledCustomCantidad}
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="col-12 text-center">
+                                        <button class="btn btn-secondary px-5" on:click={handleModalCotizacion}>
+                                            Cotizar
+                                        </button>
+                                    </div>
+                                </div>
+                            {/if}
+                        {/if}
+                    </div>
                 </div>
                 <div class="col-12 col-sm-12 col-md-7">
                     <h4 class="fw-bold mb-1">{brazalete.descripcion}</h4>
@@ -167,144 +242,147 @@
                     <p>
                         {@html brazalete.descripcion_larga}
                     </p>
-                    <h5 class="fw-bold my-4 text-primary">
-                        <small class="fs-6 fw-light">desde</small> ${brazalete.precio_min} + I.V.A
-                    </h5>
-                    <hr />
-                    <div class="mb-3">
-                        <label for="paquetes" class="form-label d-block"
-                            >Paquete de:</label
-                        >
-                        <div class="row row-cols-auto g-3">
-                            <div class="col">
-                                <input
-                                    type="radio"
-                                    bind:group={cantidad}
-                                    class="btn-check"
-                                    name="paquetes"
-                                    id="option1"
-                                    autocomplete="off"
-                                    checked
-                                    value={100}
-                                />
-                                <label
-                                    class="btn btn-sm btn-outline-primary px-1 px-md-2 px-lg-3"
-                                    for="option1">100 pieza</label
-                                >
-                            </div>
-
-                            <div class="col">
-                                <input
-                                    type="radio"
-                                    bind:group={cantidad}
-                                    class="btn-check"
-                                    name="paquetes"
-                                    id="option2"
-                                    autocomplete="off"
-                                    value={1000}
-                                />
-                                <label
-                                    class="btn btn-sm btn-outline-primary px-1 px-md-2 px-lg-3"
-                                    for="option2">1,000 piezas</label
-                                >
-                            </div>
-
-                            <div class="col">
-                                <input
-                                    type="radio"
-                                    bind:group={cantidad}
-                                    class="btn-check"
-                                    name="paquetes"
-                                    id="option3"
-                                    autocomplete="off"
-                                    value={10000}
-                                />
-                                <label
-                                    class="btn btn-sm btn-outline-primary px-1 px-md-2 px-lg-3"
-                                    for="option3">10,000 piezas</label
-                                >
-                            </div>
-
-                            <div class="col">
-                                <input
-                                    type="radio"
-                                    bind:group={cantidad}
-                                    class="btn-check"
-                                    name="paquetes"
-                                    id="option4"
-                                    autocomplete="off"
-                                    value={-1}
-                                />
-                                <label
-                                    class="btn btn-sm btn-outline-primary px-1 px-md-2 px-lg-3"
-                                    for="option4">OTROS</label
-                                >
-                            </div>
-
-                            <div class="col-md-3">
-                                <input
-                                    type="number"
-                                    bind:value={customCantidad}
-                                    name="cantidad"
-                                    id="cantidad"
-                                    class="form-control form-control-sm text-center border-3"
-                                    class:border-primary={!disabledCustomCantidad}
-                                    disabled={disabledCustomCantidad}
-                                />
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="mb-5">
-                        <label for="tallas" class="form-label d-block"
-                            >Talla:</label
-                        >
-                        <div class="row row-cols-auto g-2">
-                            <div class="col">
-                                <input
-                                    type="radio"
-                                    bind:group={medida}
-                                    value={18}
-                                    class="btn-check"
-                                    name="tallas"
-                                    id="option6"
-                                    checked
-                                    autocomplete="off"
-                                />
-                                <label
-                                    class="btn btn-sm btn-outline-info px-1 px-md-2 px-lg-3"
-                                    for="option6">18 cm</label
-                                >
-                            </div>
-
-                            <div class="col">
-                                <input
-                                    type="radio"
-                                    bind:group={medida}
-                                    value={23}
-                                    class="btn-check"
-                                    name="tallas"
-                                    id="option7"
-                                    autocomplete="off"
-                                />
-                                <label
-                                    class="btn btn-sm btn-outline-info px-1 px-md-2 px-lg-3"
-                                    for="option7">23 cm</label
-                                >
-                            </div>
-                        </div>
-                    </div>
-
-                    <div>
-                        <div class="col-12 col-sm-12 col-md-3 d-grid">
-                            <button
-                                class="btn btn-secondary px-5"
-                                on:click={handleModalCotizacion}
+                    {#if brazalete.precio_min > 0}
+                        <h5 class="fw-bold my-4 text-primary">
+                            <small class="fs-6 fw-light">desde</small> ${brazalete.precio_min} + I.V.A
+                        </h5>
+                        <hr />
+                        <div class="mb-3">
+                            <label for="paquetes" class="form-label d-block"
+                                >Paquete de:</label
                             >
-                                Cotizar
-                            </button>
+                            <div class="row row-cols-auto g-3">
+                                <div class="col">
+                                    <input
+                                        type="radio"
+                                        bind:group={cantidad}
+                                        class="btn-check"
+                                        name="paquetes"
+                                        id="option1"
+                                        autocomplete="off"
+                                        checked
+                                        value={100}
+                                    />
+                                    <label
+                                        class="btn btn-sm btn-outline-primary px-1 px-md-2 px-lg-3"
+                                        for="option1">100 pieza</label
+                                    >
+                                </div>
+
+                                <div class="col">
+                                    <input
+                                        type="radio"
+                                        bind:group={cantidad}
+                                        class="btn-check"
+                                        name="paquetes"
+                                        id="option2"
+                                        autocomplete="off"
+                                        value={1000}
+                                    />
+                                    <label
+                                        class="btn btn-sm btn-outline-primary px-1 px-md-2 px-lg-3"
+                                        for="option2">1,000 piezas</label
+                                    >
+                                </div>
+
+                                <div class="col">
+                                    <input
+                                        type="radio"
+                                        bind:group={cantidad}
+                                        class="btn-check"
+                                        name="paquetes"
+                                        id="option3"
+                                        autocomplete="off"
+                                        value={10000}
+                                    />
+                                    <label
+                                        class="btn btn-sm btn-outline-primary px-1 px-md-2 px-lg-3"
+                                        for="option3">10,000 piezas</label
+                                    >
+                                </div>
+
+                                <div class="col">
+                                    <input
+                                        type="radio"
+                                        bind:group={cantidad}
+                                        class="btn-check"
+                                        name="paquetes"
+                                        id="option4"
+                                        autocomplete="off"
+                                        value={-1}
+                                    />
+                                    <label
+                                        class="btn btn-sm btn-outline-primary px-1 px-md-2 px-lg-3"
+                                        for="option4">OTROS</label
+                                    >
+                                </div>
+
+                                <div class="col-md-3">
+                                    <input
+                                        type="number"
+                                        bind:value={customCantidad}
+                                        name="cantidad"
+                                        id="cantidad"
+                                        class="form-control form-control-sm text-center border-3"
+                                        class:border-primary={!disabledCustomCantidad}
+                                        disabled={disabledCustomCantidad}
+                                    />
+                                </div>
+                            </div>
                         </div>
-                    </div>
+
+                        <div class="mb-5">
+                            <label for="tallas" class="form-label d-block"
+                                >Talla:</label
+                            >
+                            <div class="row row-cols-auto g-2">
+                                <div class="col">
+                                    <input
+                                        type="radio"
+                                        bind:group={medida}
+                                        value={18}
+                                        class="btn-check"
+                                        name="tallas"
+                                        id="option6"
+                                        checked
+                                        autocomplete="off"
+                                    />
+                                    <label
+                                        class="btn btn-sm btn-outline-info px-1 px-md-2 px-lg-3"
+                                        for="option6">18 cm</label
+                                    >
+                                </div>
+
+                                <div class="col">
+                                    <input
+                                        type="radio"
+                                        bind:group={medida}
+                                        value={23}
+                                        class="btn-check"
+                                        name="tallas"
+                                        id="option7"
+                                        autocomplete="off"
+                                    />
+                                    <label
+                                        class="btn btn-sm btn-outline-info px-1 px-md-2 px-lg-3"
+                                        for="option7">23 cm</label
+                                    >
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="col-12 col-sm-12 col-md-3 d-grid">
+                                <button
+                                    class="btn btn-secondary px-5"
+                                    on:click={handleModalCotizacion}
+                                >
+                                    Cotizar
+                                </button>
+                            </div>
+                        </div>
+                    {/if}
+
                 </div>
             </div>
 
