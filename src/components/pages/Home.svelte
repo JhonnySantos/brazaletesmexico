@@ -8,6 +8,7 @@
     import Template from '../ui/Template.svelte';
     import EventsGrid from '../ui/EventsGrid.svelte';
     import BenefitsGrid from '../ui/BenefitsGrid.svelte';
+    import BlogLastEntries from '../ui/BlogLastEntries.svelte';
     import GridTiposBrazaletes from '../ui/GridTiposBrazaletes.svelte';
 
     let tipos = [];
@@ -139,5 +140,7 @@
         <Section name='NUESTRAS VENTAJAS' />
 
         <BenefitsGrid {benefits} />
+
+        <BlogLastEntries />
     </div>
 </Template>
