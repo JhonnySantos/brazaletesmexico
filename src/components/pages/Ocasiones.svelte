@@ -1,4 +1,5 @@
 <script>
+  import GridBrazaletes from "../ui/GridBrazaletes.svelte";
   import GridTiposBrazaletes from "../ui/GridTiposBrazaletes.svelte";
   import { apiHost, imagesPath } from "../../stores/stores";
   import NotFoundPage from "./NotFoundPage.svelte";
@@ -9,19 +10,29 @@
   export let slug = "";
   let ocasion = {};
   let tipos = [];
+  let brazaletes = [];
 
   const obtenerOcasion = async () => {
     window.scrollTo(0, 0);
-    let response = await fetch(`${$apiHost}/tipos/all/1`);
-    tipos = await response.json();
-
-    response = await fetch(`${$apiHost}/eventos/one/${slug}`);
+    
+    let response = await fetch(`${$apiHost}/eventos/one/${slug}`);
     return await response.json();
 
   };
 
+  const obtenerBrazaletesOcasion = async (ocasion) => {
+    if(ocasion.tipos_brazaletes){
+      let response = await fetch(`${$apiHost}/tipos/ocasion/${ocasion.id}`);
+      return tipos =   await response.json();
+    }else{
+      let response = await fetch(`${$apiHost}/brazaletes/ocasion/${ocasion.id}`);
+      return brazaletes =   await response.json();
+    }
+  }
+
   onMount( async () => {
     ocasion = obtenerOcasion();
+    //tipos = obtenerBrazaletesOcasion(ocasion);
   });
 
 </script>
@@ -57,11 +68,19 @@
     </div>
 
     <Section name={ocasion.encabezado} />
-
+    {#await obtenerBrazaletesOcasion(ocasion)}
+      <Template>
+        <Loading />
+      </Template>
+    {:then tipos}
     <div class="container my-7">
-      <GridTiposBrazaletes {tipos} />
-    </div>
-
+        {#if ocasion.tipos_brazaletes}
+          <GridTiposBrazaletes {tipos} />
+        {:else}
+          <GridBrazaletes {brazaletes} />
+        {/if}        
+      </div>
+    {/await}
   </Template>
 
   {:else}
