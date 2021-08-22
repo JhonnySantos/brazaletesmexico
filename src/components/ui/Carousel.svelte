@@ -14,7 +14,7 @@
                 <img
                     src={`${$imagesPath}/carousel-bg-1.jpg`}
                     class="card-img" 
-                    alt="brazaletes-en-mexico-de-seguridad-tyvek2"
+                    alt=""
                 />
                 <div class="card-img-overlay container">
                     <div class="row h-100 align-items-center">
@@ -73,6 +73,53 @@
                                     Ver más
                                 </a>
                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item" data-bs-interval="10000">
+                <img
+                    src={`${$imagesPath}/carousel-bg-4.jpg`}
+                    class="card-img" 
+                    alt=""
+                />
+                <div class="card-img-overlay container">
+                    <div class="row h-100 align-items-center">
+                        <div class="col-12 col-md-6 text-end fade-left">
+                            <img src={`${$imagesPath}/carousel-image-4.png`} class="img-fluid" alt="brazaletes-mexico-tyvek">
+                        </div>
+                        <div class="col-12 col-md-6 text-center text-md-start">
+                            <h1 class="display-3 text-primary fw-bold fade-right fade-right-1">Brazalete Artesanal</h1>
+                            <div class="col-12 col-md-9 col-lg-8 bg-dark-transparent p-4">
+                                <h5 class="fw-bold text-white fade-right">Promociona de una manera diferente</h5>
+                                <h6 class="text-white-50">Opcional: Chip de Radiofrecuencia</h6>
+                            </div>
+                            <a href="/brazaletes/artesanales" class="btn btn-secondary shadow mt-3 fade-right" use:link>
+                                Ver más
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item" data-bs-interval="10000">
+                <img
+                    src={`${$imagesPath}/carousel-bg-5.jpg`}
+                    class="card-img" 
+                    alt=""
+                />
+                <div class="card-img-overlay container">
+                    <div class="row h-100 align-items-center">
+                        <div class="col-12 col-md-6 ps-5 text-center text-md-start">
+                            <h1 class="display-3 text-primary fw-bold fade-right fade-right-1">Tarjetas de PVC</h1>
+                            <div class="col-12 col-md-9 col-lg-8 bg-dark-transparent p-4">
+                                <h5 class="fw-bold text-white fade-right">Impresión de alta calidad, duraderas, flexibles</h5>
+                            </div>
+                            <a href="/brazaletes/pvc" class="btn btn-secondary shadow mt-3 fade-right" use:link>
+                                Ver más
+                            </a>
+                        </div>
+                        <div class="col-12 col-md-6 pe-5 text-start fade-left">
+                            <img src={`${$imagesPath}/carousel-image-5.png`} class="img-fluid" alt="brazaletes-mexico-tyvek">
                         </div>
                     </div>
                 </div>

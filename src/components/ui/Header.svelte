@@ -37,20 +37,21 @@
 
             <div class='social-media'>
                 <a href="https://www.instagram.com/brazaletesmexico/" class="link-light text-decoration-none">
-                    <i class="fab fa-facebook-square fa-lg"></i>
+                    <i class="fab fa-facebook-f fa-lg"></i>
                 </a>
 
                 <a href="https://www.facebook.com/brazaletesmex/" class="link-light text-decoration-none">
-                    <i class="fab fa-instagram-square fa-lg"></i>
+                    <i class="fab fa-instagram fa-lg"></i>
                 </a>
-                
-                <a href="https://mx.linkedin.com/company/brazaletes-mexico" class="link-light text-decoration-none">
-                    <i class="fab fa-youtube-square fa-lg"></i>
-                </a>
-                
+
                 <a href="https://www.youtube.com/channel/UCljRrLXh0Ajd9ib0WYcb29A" class="link-light text-decoration-none">
                     <i class="fab fa-linkedin fa-lg"></i>
                 </a>
+
+                <a href="https://mx.linkedin.com/company/brazaletes-mexico" class="link-light text-decoration-none">
+                    <i class="fab fa-youtube fa-lg"></i>
+                </a>
+
             </div>
         </div>
     </nav>
