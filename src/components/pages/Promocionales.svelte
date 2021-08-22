@@ -36,7 +36,7 @@
   {#await promise}
     <Loading />
   {:then data}
-    <h1 class="text-center my-5">Brazaletes Promocionales</h1>
+    <h1 class="text-center my-5">Promocionales</h1>
 
     <div class="container my-5">
       {#if tipo !== null}
