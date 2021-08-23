@@ -41,7 +41,6 @@
 
 <style>
     .card-brazalete:hover {
-        opacity: 0.8;
-        box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175) !important;
+        opacity: 0.97;
     }
 </style>
