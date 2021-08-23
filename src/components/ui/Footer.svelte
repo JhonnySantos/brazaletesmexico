@@ -41,22 +41,22 @@
                 <ul class="list-unstyled">
                     <li class="mb-2 small">
                         <a class="link-dark text-decoration-none" target="_blank" href="https://www.facebook.com/brazaletesmex/">
-                            <i class="fab fa-facebook-square fa-lg"></i> @brazaletesmex
+                            <i class="fab fa-facebook-f fa-lg"></i> @brazaletesmex
                         </a>
                     </li>
                     <li class="mb-2 small">
                         <a class="link-dark text-decoration-none" target="_blank" href="https://www.instagram.com/brazaletesmexico/">
-                            <i class="fab fa-instagram-square fa-lg"></i> @brazaletesmexico
+                            <i class="fab fa-instagram fa-lg"></i> @brazaletesmexico
                         </a>
                     </li>
                     <li class="mb-2 small">
-                        <a class="link-dark text-decoration-none" target="_blank" href="https://www.youtube.com/channel/UCljRrLXh0Ajd9ib0WYcb29A">
-                            <i class="fab fa-youtube-square fa-lg"></i> Brazaletes México SA DE CV
+                        <a class="link-dark text-decoration-none" target="_blank" href="https://mx.linkedin.com/company/brazaletes-mexico">
+                            <i class="fab fa-linkedin fa-lg"></i> Brazaletes México
                         </a>
                     </li>
                     <li class="mb-4 small">
-                        <a class="link-dark text-decoration-none" target="_blank" href="https://mx.linkedin.com/company/brazaletes-mexico">
-                            <i class="fab fa-linkedin fa-lg"></i> Brazaletes México
+                        <a class="link-dark text-decoration-none" target="_blank" href="https://www.youtube.com/channel/UCljRrLXh0Ajd9ib0WYcb29A">
+                            <i class="fab fa-youtube fa-lg"></i> Brazaletes México SA DE CV
                         </a>
                     </li>
                     <li class="small">
