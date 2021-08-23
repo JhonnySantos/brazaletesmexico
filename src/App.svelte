@@ -78,7 +78,7 @@
     }
 
 	:global(.card-tipo-brazalete:hover) {
-		box-shadow: 0 0.125rem .25rem rgba(0, 0, 0, 0.1) !important;
+		opacity: 0.97;
     }
 
 	:global(.link-ecofriendly:hover) {
