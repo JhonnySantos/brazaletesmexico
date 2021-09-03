@@ -2,9 +2,9 @@
     import CardTipoBrazalete from "./CardTipoBrazalete.svelte";
     export let tipos = [];
 
-    console.log(tipos);
-
     const position = tipos.length > 4 ? "start" : "center";
+
+    console.log(tipos);
 </script>
 
 <div
