@@ -58,22 +58,25 @@
                     class="card-img"
                     alt="brazaletes-rfdi-en-mexico-seguridad"
                 />
-                <div class="card-img-overlay container px-3 px-md-7">
-                    <div class="row h-100 align-items-center">
-                        <div class="col-12 col-md-9 col-lg-8 bg-dark-transparent fade-left">
-                            <h1 class="display-4 text-white fw-bold">Brazaletes RFID</h1>
-                            <h4 class="text-white">Tecnología en Radiofrecuencia como:</h4>
-                            <ul class="text-white">
-                                <li>Abrir cerraduras</li>
-                                <li>Centro de consumo</li>
-                                <li>Identificación de cliente</li>
-                            </ul>
-                            <div class="text-center mb-3">
-                                <a href="/rfid" class="btn btn-secondary shadow mt-3 fade-left" use:link>
-                                    Ver más
-                                </a>
+                <div class="card-img-overlay container-lg px-3 px-md-5">
+                    <div class="row h-100 align-items-center bg-dark-transparent">
+                            <div class="col-12 col-md-6 fade-left">
+                                <h1 class="display-4 text-white fw-bold">Brazaletes RFID</h1>
+                                <h4 class="text-white">Tecnología en Radiofrecuencia como:</h4>
+                                <ul class="text-white">
+                                    <li>Abrir cerraduras</li>
+                                    <li>Centro de consumo</li>
+                                    <li>Identificación de cliente</li>
+                                </ul>
+                                <div class="text-center">
+                                    <a href="/rfid" class="btn btn-secondary shadow my-1" use:link>
+                                        Ver más
+                                    </a>
+                                </div>
                             </div>
-                        </div>
+                            <div class="col-12 col-md-6 px-5 fade-right">
+                                <img src={`${$imagesPath}/carousel-image-3.png`} class="img-fluid" alt="cotizaciones-online">
+                            </div>
                     </div>
                 </div>
             </div>
@@ -84,10 +87,13 @@
                     alt=""
                 />
                 <div class="card-img-overlay container">
-                    <div class="row h-100 align-items-center">
-                        <div class="col-12 col-md-6 text-end fade-left">
+                    <div class="row h-100 align-items-center justify-content-center">
+                        <div class="col-6 px-5 px-lg-3 text-end fade-left">
                             <img src={`${$imagesPath}/carousel-image-4.png`} class="img-fluid" alt="brazaletes-mexico-tyvek">
                         </div>
+
+                        <div class="w-100 d-block d-md-none"></div>
+
                         <div class="col-12 col-md-6 text-center text-md-start">
                             <h1 class="display-3 text-primary fw-bold fade-right fade-right-1">Brazalete Artesanal</h1>
                             <div class="col-12 col-md-9 col-lg-8 bg-dark-transparent p-4">
@@ -109,16 +115,16 @@
                 />
                 <div class="card-img-overlay container">
                     <div class="row h-100 align-items-center">
-                        <div class="col-12 col-md-6 ps-5 text-center text-md-start">
+                        <div class="col-12 col-md-6 ps-lg-5 text-center text-md-start">
                             <h1 class="display-3 text-primary fw-bold fade-right fade-right-1">Tarjetas de PVC</h1>
                             <div class="col-12 col-md-9 col-lg-8 bg-dark-transparent p-4">
                                 <h5 class="fw-bold text-white fade-right">Impresión de alta calidad, duraderas, flexibles</h5>
                             </div>
-                            <a href="/brazaletes/pvc" class="btn btn-secondary shadow mt-3 fade-right" use:link>
+                            <a href="/brazaletes/pvc" class="btn btn-secondary shadow my-1 fade-right" use:link>
                                 Ver más
                             </a>
                         </div>
-                        <div class="col-12 col-md-6 pe-5 text-start fade-left">
+                        <div class="col-12 col-md-6 px-5 px-lg-3 fade-left">
                             <img src={`${$imagesPath}/carousel-image-5.png`} class="img-fluid" alt="brazaletes-mexico-tyvek">
                         </div>
                     </div>
