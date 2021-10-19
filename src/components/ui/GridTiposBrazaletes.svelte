@@ -3,8 +3,6 @@
     export let tipos = [];
 
     const position = tipos.length > 4 ? "start" : "center";
-
-    console.log(tipos);
 </script>
 
 <div

@@ -4,8 +4,6 @@
     export let seccion = {};
     let showSubmenu = false;
 
-    console.log(seccion);
-
     const handleMouseOver = (e) => {
         showSubmenu = true;
     };
